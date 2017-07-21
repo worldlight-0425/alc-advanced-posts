@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 add_action( 'wp_enqueue_scripts', 'sl_enqueue_scripts' );
 function sl_enqueue_scripts() {
-	wp_enqueue_script( 'simple-likes-public-js', get_template_directory_uri() . '/js/simple-likes-public.js', array( 'jquery' ), '0.5', false );
+	wp_enqueue_script( 'simple-likes-public-js', plugin_dir_url( __FILE__ ) . 'js/simple-likes-public.js', array( 'jquery' ), '0.5', false );
 	wp_localize_script( 'simple-likes-public-js', 'simpleLikes', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 		'like' => esc_html__( 'Like', 'alchemists' ),
@@ -214,7 +214,7 @@ function get_simple_likes_button( $post_id, $is_comment = NULL ) {
 	$icon_empty = get_unliked_icon();
 	$icon_full = get_liked_icon();
 	// Loader
-	$loader = '<span id="sl-loader"></span>';
+	$loader = '<span class="sl-loader"></span>';
 	// Liked/Unliked Variables
 	if ( already_liked( $post_id, $is_comment ) ) {
 		$class = esc_attr( ' meta__item--likes--active' );

@@ -11,7 +11,7 @@
 		} else {
 			allbuttons = $('.sl-button-'+post_id);
 		}
-		var loader = allbuttons.next('#sl-loader');
+		var loader = allbuttons.next('.sl-loader');
 		if (post_id !== '') {
 			$.ajax({
 				type: 'POST',
@@ -23,8 +23,8 @@
 					is_comment : iscomment,
 				},
 				beforeSend:function(){
-					loader.html('&nbsp;<div class="loader">Loading...</div>');
-				},	
+					loader.html('&nbsp;<div class="like-loader"></div>');
+				},
 				success: function(response){
 					var icon = response.icon;
 					var count = response.count;
@@ -38,10 +38,10 @@
 						allbuttons.prop('title', unlike_text);
 						allbuttons.addClass('liked');
 					}
-					loader.empty();					
+					loader.empty();
 				}
 			});
-			
+
 		}
 		return false;
 	});
