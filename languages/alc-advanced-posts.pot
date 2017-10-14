@@ -1,0 +1,152 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Alchemists Advanced Posts\n"
+"POT-Creation-Date: 2017-10-09 00:45+0100\n"
+"PO-Revision-Date: 2017-10-09 00:45+0100\n"
+"Last-Translator: Dan Fisher <dan.fisher85@yahoo.com>\n"
+"Language-Team: Dan Fisher <dan.fisher85@yahoo.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: alc-advanced-posts.php:314
+msgid "Share on Facebook"
+msgstr ""
+
+#: alc-advanced-posts.php:320
+msgid "Share on Twitter"
+msgstr ""
+
+#: alc-advanced-posts.php:326
+msgid "Share on Google+"
+msgstr ""
+
+#: alc-advanced-posts.php:332
+msgid "Share on Linkedin"
+msgstr ""
+
+#: alc-advanced-posts.php:338
+msgid "Share on VK"
+msgstr ""
+
+#: alc-advanced-posts.php:344
+msgid "Share on OK"
+msgstr ""
+
+#: alc-advanced-posts.php:350
+msgid "Share on WhatsApp"
+msgstr ""
+
+#: alc-advanced-posts.php:356
+msgid "Share on Viber"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:20
+msgctxt "post type general name"
+msgid "Albums"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:21
+msgctxt "post type singular name"
+msgid "Album"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:22
+msgctxt "Album"
+msgid "Add New"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:23
+msgid "Add New Album"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:24
+msgid "Edit Album"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:25
+msgid "New Album"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:26
+msgid "View Album"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:27
+msgid "Search Albums"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:28
+msgid "No albums found"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:29
+msgid "No albums found in Trash"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:31
+msgid "Albums"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:51
+msgctxt "category general name"
+msgid "Albums Categories"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:52
+msgctxt "taxonomy singular name"
+msgid "Albums Category"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:53
+msgid "Search Category"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:54
+msgid "All Categories"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:55
+msgid "Parent Category"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:56
+msgid "Parent Category:"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:57
+msgid "Edit Category"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:58
+msgid "Update Category"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:59
+msgid "Add New Category"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:60
+msgid "New Category Name"
+msgstr ""
+
+#: post-like-system/post-like.php:32 post-like-system/post-like.php:225
+msgid "Like"
+msgstr ""
+
+#: post-like-system/post-like.php:33 post-like-system/post-like.php:221
+msgid "Unlike"
+msgstr ""
+
+#: post-like-system/post-like.php:47
+msgid "Not permitted"
+msgstr ""

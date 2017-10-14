@@ -3,7 +3,7 @@
 Plugin Name: Alchemists Advanced Posts
 Plugin URI: http://themeforest.net/user/dan_fisher/portfolio
 Description: This plugin adds social sharing, post views, likes, custom post types to Alchemists WP Theme.
-Version: 1.0.2
+Version: 1.0.3
 Author: Dan Fisher
 Author URI: http://themeforest.net/user/dan_fisher
 Text Domain: alc-advanced-posts
@@ -53,9 +53,19 @@ include ALCADVPOSTS_PLUGIN_DIR . '/custom-post-types/custom-post-types.php';
 
 
 /*
- * 3. FUNCTIONS
+ * 3. TRANSLATION
  */
 
+add_action( 'plugins_loaded', 'alc_adv_posts_language_init' );
+function alc_adv_posts_language_init() {
+	 load_plugin_textdomain( 'alc-advanced-posts', false, ALCADVPOSTS_PLUGIN_URL . '/languages/' );
+}
+
+
+
+/*
+ * 4. FUNCTIONS
+ */
 
 /**
  * Get number of Twitter followers
@@ -248,6 +258,22 @@ function alc_post_social_share_buttons_small() {
 
         <?php break;
 
+        case 'social_whatsapp': ?>
+        
+        <li class="social-links__item">
+          <a target="_blank" href="whatsapp://send?text=<?php echo $url; ?>" class="social-links__link social-links__link--whatsapp" rel="nofollow"><i class="fa fa-whatsapp"></i></a>
+        </li>
+
+        <?php break;
+
+        case 'social_viber': ?>
+        
+        <li class="social-links__item">
+          <a target="_blank" href="viber://forward?text=<?php echo $url; ?>" class="social-links__link social-links__link--viber" rel="nofollow"><img src="<?php echo ALCADVPOSTS_PLUGIN_URL ?>/assets/img/icon-viber.svg" alt=""></a>
+        </li>
+
+        <?php break;
+
       }
     }
     endif; ?>
@@ -317,6 +343,17 @@ function alc_post_social_share_buttons() {
 
         <a target="_blank" onClick="popup = window.open('https://connect.ok.ru/offer?url=<?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-odnoklassniki btn-icon btn-block" rel="nofollow"><i class="fa fa-odnoklassniki"></i> <span class="post-sharing__label hidden-xs"><?php esc_html_e( 'Share on OK', 'alc-advanced-posts' ); ?></span></a>
 
+        <?php break;
+
+        case 'social_whatsapp': ?>
+        
+        <a target="_blank" href="whatsapp://send?text=<?php echo $url; ?>" class="btn btn-default btn-whatsapp btn-icon btn-block" rel="nofollow"><i class="fa fa-whatsapp"></i> <span class="post-sharing__label hidden-xs"><?php esc_html_e( 'Share on WhatsApp', 'alc-advanced-posts' ); ?></span></a>
+
+        <?php break;
+
+        case 'social_viber': ?>
+        
+        <a target="_blank" href="viber://forward?text=<?php echo $url; ?>" class="btn btn-default btn-viber btn-icon btn-block" rel="nofollow"><img src="<?php echo ALCADVPOSTS_PLUGIN_URL ?>/assets/img/icon-viber.svg" alt=""> <span class="post-sharing__label hidden-xs"><?php esc_html_e( 'Share on Viber', 'alc-advanced-posts' ); ?></span></a>
 
         <?php break;
 
