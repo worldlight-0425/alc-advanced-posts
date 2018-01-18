@@ -3,7 +3,7 @@
 Plugin Name: Alchemists Advanced Posts
 Plugin URI: http://themeforest.net/user/dan_fisher/portfolio
 Description: This plugin adds social sharing, post views, likes, custom post types to Alchemists WP Theme.
-Version: 1.0.3
+Version: 1.0.4
 Author: Dan Fisher
 Author URI: http://themeforest.net/user/dan_fisher
 Text Domain: alc-advanced-posts
@@ -362,5 +362,104 @@ function alc_post_social_share_buttons() {
     endif; ?>
 
   </div>
+  <?php endif;
+}
+
+
+
+// Social Share buttons with labels
+function alc_post_social_share_buttons_labels() {
+
+  global $post;
+
+  $url = urlencode( get_permalink( $post->ID ));
+  $title = urlencode( get_the_title( $post->ID ));
+  $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail-lg-alt' );
+
+  $alchemists_data  = get_option('alchemists_data');
+  $social_share     = array();
+
+  $post_social      = isset( $alchemists_data['alchemists__opt-single-post-social'] ) ? esc_html( $alchemists_data['alchemists__opt-single-post-social'] ) : '';
+  if ( isset( $alchemists_data['alchemists__opt-single-post-social-sorter']['enabled'] )) {
+    $social_share = $alchemists_data['alchemists__opt-single-post-social-sorter']['enabled'];
+  }
+
+  if ( $post_social == 1 ) : ?>
+  <ul class="social-links social-links--btn social-links--btn-block">
+
+  	<?php // Social Sharing
+
+    if ( $social_share ): foreach ($social_share as $key=>$value) {
+      switch($key) {
+
+        case 'social_facebook': ?>
+
+        <li class="social-links__item">
+          <a target="_blank" onClick="popup = window.open('https://www.facebook.com/share.php?u=<?php echo $url; ?>&title=<?php echo esc_html( $title ); ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--fb" rel="nofollow"><?php esc_html_e( 'Share on Facebook', 'alc-advanced-posts' ); ?></a>
+        </li>
+
+        <?php break;
+
+        case 'social_twitter': ?>
+
+        <li class="social-links__item">
+          <a target="_blank" onClick="popup = window.open('https://twitter.com/home?status=<?php echo $title; ?> <?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--twitter" rel="nofollow"><?php esc_html_e( 'Share on Twitter', 'alc-advanced-posts' ); ?></a>
+        </li>
+
+        <?php break;
+
+        case 'social_google-plus': ?>
+
+        <li class="social-links__item">
+          <a target="_blank" onClick="popup = window.open('http://google.com/bookmarks/mark?op=edit&amp;bkmk=<?php echo $url; ?>&amp;title=<?php echo $title; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--gplus" rel="nofollow"><?php esc_html_e( 'Share on Google+', 'alc-advanced-posts' ); ?></a>
+        </li>
+
+        <?php break;
+
+        case 'social_linkedin': ?>
+
+        <li class="social-links__item">
+          <a target="_blank" onClick="popup = window.open('http://linkedin.com/shareArticle?mini=true&amp;url=<?php echo $url; ?>&amp;title=<?php echo $title; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--linkedin" rel="nofollow"><?php esc_html_e( 'Share on LinkedIn', 'alc-advanced-posts' ); ?></a>
+        </li>
+
+        <?php break;
+
+        case 'social_vk': ?>
+
+        <li class="social-links__item">
+          <a target="_blank" onClick="popup = window.open('http://vk.com/share.php?url=<?php echo $url; ?>&amp;<?php echo $title; ?><?php echo $thumbnail; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--vk" rel="nofollow"><?php esc_html_e( 'Share on VK', 'alc-advanced-posts' ); ?></a>
+        </li>
+
+        <?php break;
+
+        case 'social_ok': ?>
+
+        <li class="social-links__item">
+          <a target="_blank" onClick="popup = window.open('https://connect.ok.ru/offer?url=<?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--ok" rel="nofollow"><?php esc_html_e( 'Share on OK', 'alc-advanced-posts' ); ?></a>
+        </li>
+
+        <?php break;
+
+        case 'social_whatsapp': ?>
+        
+        <li class="social-links__item">
+          <a target="_blank" href="whatsapp://send?text=<?php echo $url; ?>" class="social-links__link social-links__link--whatsapp" rel="nofollow"><?php esc_html_e( 'Share on WhatsApp', 'alc-advanced-posts' ); ?></a>
+        </li>
+
+        <?php break;
+
+        case 'social_viber': ?>
+        
+        <li class="social-links__item">
+          <a target="_blank" href="viber://forward?text=<?php echo $url; ?>" class="social-links__link social-links__link--viber" rel="nofollow"><?php esc_html_e( 'Share on Viber', 'alc-advanced-posts' ); ?></a>
+        </li>
+
+        <?php break;
+
+      }
+    }
+    endif; ?>
+
+  </ul>
   <?php endif;
 }
