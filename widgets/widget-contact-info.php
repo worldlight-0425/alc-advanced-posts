@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   1.1.3
+ * @version   1.1.5
  */
 
 
@@ -159,43 +159,43 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 
 					<?php if ( !empty( $soc_fb) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_fb ); ?>" class="social-links__link"><i class="fa fa-facebook"></i> <?php esc_html_e( 'Facebook', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_fb ); ?>" class="social-links__link" target="_blank"><i class="fa fa-facebook"></i> <?php esc_html_e( 'Facebook', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
 					<?php if ( !empty( $soc_tw) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_tw ); ?>" class="social-links__link"><i class="fa fa-twitter"></i> <?php esc_html_e( 'Twitter', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_tw ); ?>" class="social-links__link" target="_blank"><i class="fa fa-twitter"></i> <?php esc_html_e( 'Twitter', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
 					<?php if ( !empty( $soc_ggl) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_ggl ); ?>" class="social-links__link"><i class="fa fa-google-plus"></i> <?php esc_html_e( 'Google+', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_ggl ); ?>" class="social-links__link" target="_blank"><i class="fa fa-google-plus"></i> <?php esc_html_e( 'Google+', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
 					<?php if ( !empty( $soc_inst) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_inst ); ?>" class="social-links__link"><i class="fa fa-instagram"></i> <?php esc_html_e( 'Instagram', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_inst ); ?>" class="social-links__link" target="_blank"><i class="fa fa-instagram"></i> <?php esc_html_e( 'Instagram', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
 					<?php if ( !empty( $soc_tele) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_tele ); ?>" class="social-links__link"><i class="fa fa-paper-plane"></i> <?php esc_html_e( 'Telegram', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_tele ); ?>" class="social-links__link" target="_blank"><i class="fa fa-paper-plane"></i> <?php esc_html_e( 'Telegram', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 					
 					<?php if ( !empty( $soc_snap) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_snap ); ?>" class="social-links__link"><i class="fa fa-snapchat-ghost"></i> <?php esc_html_e( 'Snapchat', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_snap ); ?>" class="social-links__link" target="_blank"><i class="fa fa-snapchat-ghost"></i> <?php esc_html_e( 'Snapchat', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
 					<?php if ( !empty( $soc_twitch) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_twitch ); ?>" class="social-links__link"><i class="fa fa-twitch"></i> <?php esc_html_e( 'Twitch', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_twitch ); ?>" class="social-links__link" target="_blank"><i class="fa fa-twitch"></i> <?php esc_html_e( 'Twitch', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 				</ul>
