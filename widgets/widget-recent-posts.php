@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   1.1.5
+ * @version   1.2.0
  */
 
 
@@ -108,9 +108,15 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 		// Post list class
 		$posts_list_classes = array(
 			'posts',
-			'posts--simple-list',
 		);
 		$post_thumb_size = 'alchemists_thumbnail-xs';
+
+		if ( $layout_style != 'xlarge' ) {
+			$posts_list_classes[] = 'posts--simple-list';
+		} else {
+			$posts_list_classes[] = 'posts--tile';
+			$post_thumb_size = 'alchemists_thumbnail-square';
+		}
 
 		if ( $layout_style == 'large' ) {
 			array_push( $posts_list_classes, 'posts--simple-list--lg', 'posts--simple-list--lg--clean' );
@@ -125,80 +131,53 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 			}
 		}
 
+		// Post classes
+		$post_classes = array(
+			'posts__item'
+		);
+		
+		if ( $layout_style == 'xlarge' ) {
+			array_push( $post_classes, 'posts__item--tile', 'card' );
+		}
+
+		// Featured Image classes
+		$thumb_classes = array(
+			'posts__thumb'
+		);
+
+		if ( $layout_style == 'xsmall' || $layout_style == 'small' || $layout_style == 'large' ) {
+			$thumb_classes[] = 'posts__thumb--hover';
+		}
+
+		if ( $layout_style == 'xlarge' ) {
+			if ( alchemists_sp_preset( 'football' ) ) {
+				$thumb_classes[] = 'effect-duotone effect-duotone--base';
+			} else {
+				$thumb_classes[] = 'posts__thumb--overlay-dark';
+			}
+		}
+
+		$thumb_classes = implode( ' ', $thumb_classes );
+
 		// Start the Loop
 		$wp_query = new WP_Query( $args );
 		if ( $wp_query->have_posts() ) : ?>
 
 		<div class="<?php echo esc_attr( implode( ' ', $posts_list_classes ) ); ?>">
-			<?php while ($wp_query->have_posts()) : $wp_query->the_post();
+			<?php
+			while ($wp_query->have_posts()) : $wp_query->the_post();
+				// get post category class
+				$post_class = alchemists_post_category_class();
+				$post_classes[] = $post_class;
 
-			// get post category class
-			$post_class = alchemists_post_category_class(); ?>
+				include ALCADVPOSTS_PLUGIN_DIR . '/widgets/widget-recent-posts/post-layout-' . $layout_style . '.php';
 
-			<div class="posts__item <?php echo esc_attr( $post_class ); ?>">
-
-				<?php if ( has_post_thumbnail() && $show_thumb ) { ?>
-					<figure class="posts__thumb posts__thumb--hover">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail( $post_thumb_size, array( 'class' => '' )); ?>
-						</a>
-					</figure>
-				<?php } ?>
-
-				<div class="posts__inner">
-
-					<?php if ( $categories_toggle ) : ?>
-						<?php alchemists_post_category_labels(); ?>
-					<?php endif; ?>
-
-					<h6 class="posts__title" title="<?php the_title_attribute(); ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
-					<time datetime="<?php esc_attr( the_time('c') ); ?>" class="posts__date">
-						<?php the_time( get_option('date_format') ); ?>
-					</time>
-
-					<?php if ( $layout_style == 'large') { ?>
-					<div class="posts__excerpt">
-						<?php echo alchemists_string_limit_words( get_the_excerpt(), $excerpt_size); ?>
-					</div>
-					<?php } ?>
-
-				</div>
-
-				<?php if ( $layout_style == 'large') { ?>
-				<div class="posts__footer">
-					<div class="post-author">
-						<figure class="post-author__avatar">
-							<?php echo get_avatar( get_the_author_meta('email'), '24' ); ?>
-						</figure>
-						<div class="post-author__info">
-							<h4 class="post-author__name">
-								<?php the_author(); ?>
-							</h4>
-						</div>
-					</div>
-					<div class="post__meta meta">
-						<?php
-						if ( $post_likes ) {
-							if ( function_exists( 'get_simple_likes_button') ) {
-								echo get_simple_likes_button( get_the_ID() );
-							}
-						}
-						if ( $post_comments ) {
-							alchemists_entry_comments();
-						}
-						?>
-					</div>
-				</div>
-				<?php } ?>
-
-			</div>
-
-			<?php endwhile; ?>
-			<?php wp_reset_postdata(); ?>
+			endwhile;
+			wp_reset_postdata();
+			?>
 		</div>
 
 		<?php endif; ?>
-
 
 		<?php echo wp_kses_post( $after_widget );
 	}
@@ -306,6 +285,7 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 				<option value="small" <?php echo ( 'small' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Small', 'alc-advanced-posts' ); ?></option>
 				<option value="xsmall" <?php echo ( 'xsmall' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Extra Small', 'alc-advanced-posts' ); ?></option>
 				<option value="large" <?php echo ( 'large' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Large', 'alc-advanced-posts' ); ?></option>
+				<option value="xlarge" <?php echo ( 'xlarge' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Extra Large', 'alc-advanced-posts' ); ?></option>
 			</select>
 		</p>
 		<p>

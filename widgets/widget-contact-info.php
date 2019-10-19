@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   1.1.5
+ * @version   1.2.0
  */
 
 
@@ -65,6 +65,12 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		$soc_tele     = isset( $instance['soc_tele'] ) ? $instance['soc_tele'] : '';
 		$soc_snap     = isset( $instance['soc_snap'] ) ? $instance['soc_snap'] : '';
 		$soc_twitch   = isset( $instance['soc_twitch'] ) ? $instance['soc_twitch'] : '';
+		$soc_custom1_title = isset( $instance['soc_custom1_title'] ) ? $instance['soc_custom1_title'] : '';
+		$soc_custom1_url   = isset( $instance['soc_custom1_url'] ) ? $instance['soc_custom1_url'] : '';
+		$soc_custom1_icon  = isset( $instance['soc_custom1_icon'] ) ? $instance['soc_custom1_icon'] : '';
+		$soc_custom2_title = isset( $instance['soc_custom2_title'] ) ? $instance['soc_custom2_title'] : '';
+		$soc_custom2_url   = isset( $instance['soc_custom2_url'] ) ? $instance['soc_custom2_url'] : '';
+		$soc_custom2_icon  = isset( $instance['soc_custom2_icon'] ) ? $instance['soc_custom2_icon'] : '';
 
 		echo wp_kses_post( $before_widget );
 
@@ -153,7 +159,7 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 				</div>
 			<?php endif; ?>
 
-			<?php if ( !empty( $soc_tw ) || !empty( $soc_fb) || !empty( $soc_ggl) || !empty( $soc_inst) ) : ?>
+			<?php if ( !empty( $soc_tw ) || !empty( $soc_fb ) || !empty( $soc_ggl ) || !empty( $soc_inst ) || !empty( $soc_custom1_url ) || !empty( $soc_custom2_url ) ) : ?>
 			<div class="info-block__item info-block__item--nopadding">
 				<ul class="social-links">
 
@@ -198,6 +204,18 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 						<a href="<?php echo esc_attr( $soc_twitch ); ?>" class="social-links__link" target="_blank"><i class="fa fa-twitch"></i> <?php esc_html_e( 'Twitch', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
+
+					<?php if ( !empty( $soc_custom1_url) ): ?>
+					<li class="social-links__item">
+						<a href="<?php echo esc_attr( $soc_custom1_url ); ?>" class="social-links__link" target="_blank"><?php echo wp_kses_post( $soc_custom1_icon ); ?> <?php echo esc_html( $soc_custom1_title ); ?></a>
+					</li>
+					<?php endif; ?>
+
+					<?php if ( !empty( $soc_custom2_url) ): ?>
+					<li class="social-links__item">
+						<a href="<?php echo esc_attr( $soc_custom2_url ); ?>" class="social-links__link" target="_blank"><?php echo wp_kses_post( $soc_custom2_icon ); ?> <?php echo esc_html( $soc_custom2_title ); ?></a>
+					</li>
+					<?php endif; ?>
 				</ul>
 			</div>
 			<?php endif; ?>
@@ -230,6 +248,12 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		$instance['soc_tele']   = $new_instance['soc_tele'];
 		$instance['soc_snap']   = $new_instance['soc_snap'];
 		$instance['soc_twitch'] = $new_instance['soc_twitch'];
+		$instance['soc_custom1_title'] = $new_instance['soc_custom1_title'];
+		$instance['soc_custom1_url']   = $new_instance['soc_custom1_url'];
+		$instance['soc_custom1_icon']  = $new_instance['soc_custom1_icon'];
+		$instance['soc_custom2_title'] = $new_instance['soc_custom2_title'];
+		$instance['soc_custom2_url']   = $new_instance['soc_custom2_url'];
+		$instance['soc_custom2_icon']  = $new_instance['soc_custom2_icon'];
 
 		return $instance;
 	}
@@ -257,6 +281,13 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 			'soc_tele'   => '',
 			'soc_snap'   => '',
 			'soc_twitch' => '',
+
+			'soc_custom1_title' => '',
+			'soc_custom1_url'   => '',
+			'soc_custom1_icon'  => '',
+			'soc_custom2_title' => '',
+			'soc_custom2_url'   => '',
+			'soc_custom2_icon'  => '',
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
@@ -337,6 +368,37 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'soc_twitch' ) ); ?>"><?php esc_html_e( 'Social - Twitch:', 'alc-advanced-posts' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_twitch' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_twitch' ) ); ?>" value="<?php echo esc_attr( $instance['soc_twitch'] ); ?>" />
 		</p>
+
+		<div style="overflow: hidden;">
+			<div style="float: left; width: 48%;">
+				<p>
+					<label for="<?php echo esc_attr( $this->get_field_id( 'soc_custom1_title' ) ); ?>"><?php esc_html_e( 'Social - Custom 1 Title:', 'alc-advanced-posts' ); ?></label>
+					<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_custom1_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_custom1_title' ) ); ?>" value="<?php echo esc_attr( $instance['soc_custom1_title'] ); ?>" />
+				</p>
+				<p>
+					<label for="<?php echo esc_attr( $this->get_field_id( 'soc_custom1_url' ) ); ?>"><?php esc_html_e( 'Social - Custom 1 URL:', 'alc-advanced-posts' ); ?></label>
+					<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_custom1_url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_custom1_url' ) ); ?>" value="<?php echo esc_attr( $instance['soc_custom1_url'] ); ?>" />
+				</p>
+				<p>
+					<label for="<?php echo esc_attr( $this->get_field_id( 'soc_custom1_icon' ) ); ?>"><?php esc_html_e( 'Social - Custom 1 Icon:', 'alc-advanced-posts' ); ?></label>
+					<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_custom1_icon' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_custom1_icon' ) ); ?>" value="<?php echo esc_attr( $instance['soc_custom1_icon'] ); ?>" />
+				</p>
+			</div>
+			<div style="float: right; width: 48%;">
+				<p>
+					<label for="<?php echo esc_attr( $this->get_field_id( 'soc_custom2_title' ) ); ?>"><?php esc_html_e( 'Social - Custom 2 Title:', 'alc-advanced-posts' ); ?></label>
+					<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_custom2_title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_custom2_title' ) ); ?>" value="<?php echo esc_attr( $instance['soc_custom2_title'] ); ?>" />
+				</p>
+				<p>
+					<label for="<?php echo esc_attr( $this->get_field_id( 'soc_custom2_url' ) ); ?>"><?php esc_html_e( 'Social - Custom 2 URL:', 'alc-advanced-posts' ); ?></label>
+					<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_custom2_url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_custom2_url' ) ); ?>" value="<?php echo esc_attr( $instance['soc_custom2_url'] ); ?>" />
+				</p>
+				<p>
+					<label for="<?php echo esc_attr( $this->get_field_id( 'soc_custom2_icon' ) ); ?>"><?php esc_html_e( 'Social - Custom 2 Icon:', 'alc-advanced-posts' ); ?></label>
+					<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_custom2_icon' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_custom2_icon' ) ); ?>" value="<?php echo esc_attr( $instance['soc_custom2_icon'] ); ?>" />
+				</p>
+			</div>
+		</div>
 
 
 		<?php
