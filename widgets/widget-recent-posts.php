@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   1.2.0
+ * @version   2.0.0
  */
 
 
@@ -123,6 +123,10 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 			$post_thumb_size = 'alchemists_thumbnail';
 		} elseif ( $layout_style == 'xsmall' ) {
 			$posts_list_classes[] = 'posts--simple-list--xs';
+		} elseif ( $layout_style == 'small-wide' ) {
+			$post_thumb_size = 'alchemists_thumbnail-xs-wide';
+		} elseif ( $layout_style == 'small-wide-alt' ) {
+			$post_thumb_size = 'alchemists_thumbnail-xs-wide-alt';
 		}
 
 		if ( $layout_style != 'large' ) {
@@ -145,7 +149,7 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 			'posts__thumb'
 		);
 
-		if ( $layout_style == 'xsmall' || $layout_style == 'small' || $layout_style == 'large' ) {
+		if ( $layout_style == 'xsmall' || $layout_style == 'small' || $layout_style == 'small-wide' || $layout_style == 'large' ) {
 			$thumb_classes[] = 'posts__thumb--hover';
 		}
 
@@ -282,10 +286,12 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'layout_style' ) ); ?>"><?php esc_html_e( 'Thumb size:', 'alc-advanced-posts' ); ?></label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'layout_style' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'layout_style' ) ); ?>" class="widefat" style="width:100%;">
-				<option value="small" <?php echo ( 'small' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Small', 'alc-advanced-posts' ); ?></option>
-				<option value="xsmall" <?php echo ( 'xsmall' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Extra Small', 'alc-advanced-posts' ); ?></option>
-				<option value="large" <?php echo ( 'large' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Large', 'alc-advanced-posts' ); ?></option>
-				<option value="xlarge" <?php echo ( 'xlarge' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Extra Large', 'alc-advanced-posts' ); ?></option>
+				<option value="small" <?php echo ( 'small' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Small - 80x80', 'alc-advanced-posts' ); ?></option>
+				<option value="small-wide" <?php echo ( 'small-wide' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Small - 90x68', 'alc-advanced-posts' ); ?></option>
+				<option value="small-wide-alt" <?php echo ( 'small-wide-alt' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Small - 112x84', 'alc-advanced-posts' ); ?></option>
+				<option value="xsmall" <?php echo ( 'xsmall' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Extra Small - 50x50', 'alc-advanced-posts' ); ?></option>
+				<option value="large" <?php echo ( 'large' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Large - 380x270', 'alc-advanced-posts' ); ?></option>
+				<option value="xlarge" <?php echo ( 'xlarge' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Extra Large - 400x400', 'alc-advanced-posts' ); ?></option>
 			</select>
 		</p>
 		<p>

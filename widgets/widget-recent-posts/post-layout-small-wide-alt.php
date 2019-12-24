@@ -4,7 +4,7 @@
  *
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
- * @since     1.2.0
+ * @since     2.0.0
  * @version   2.0.0
  */
 
@@ -33,6 +33,12 @@
 			<?php the_time( get_option('date_format') ); ?>
 		</time>
 
+	</div>
+
+	<div class="clearfix"></div>
+
+	<div class="posts__excerpt">
+		<?php echo alchemists_string_limit_words( get_the_excerpt(), $excerpt_size); ?>
 	</div>
 
 </div>

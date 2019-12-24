@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   1.1.5
+ * @version   2.0.0
  */
 
 
@@ -56,6 +56,7 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 		$posts_popular_count   = isset( $instance['posts_popular_count'] ) ? $instance['posts_popular_count'] : 3;
 		$popularity            = isset( $instance['popularity'] ) ? $instance['popularity'] : 'likes';
 		$show_thumb            = isset( $instance['show_thumb'] ) ? true : false;
+		$thumb_size            = isset( $instance['thumb_size'] ) ? $instance['thumb_size'] : 'thumb-80x80';
 		$show_excerpt          = isset( $instance['show_excerpt'] ) ? true : false;
 		$excerpt_size          = isset( $instance['excerpt_size'] ) ? $instance['excerpt_size'] : 20;
 
@@ -69,6 +70,10 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 		$categories_toggle = isset( $alchemists_data['alchemists__posts-categories'] ) ? $alchemists_data['alchemists__posts-categories'] : 1;
 
 		$post_thumb_size = 'alchemists_thumbnail-xs';
+
+		if ( 'thumb-112x84' == $thumb_size ) {
+			$post_thumb_size = 'alchemists_thumbnail-xs-wide-alt';
+		}
 
 		// Generate unique ID
 		$unique_id = rand( 0, 9999 );
@@ -205,6 +210,7 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 		$instance['posts_popular_count']   = $new_instance['posts_popular_count'];
 		$instance['popularity']            = $new_instance['popularity'];
 		$instance['show_thumb']            = $new_instance['show_thumb'];
+		$instance['thumb_size']            = $new_instance['thumb_size'];
 		$instance['show_excerpt']          = $new_instance['show_excerpt'];
 		$instance['excerpt_size']          = $new_instance['excerpt_size'];
 
@@ -228,6 +234,7 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 			'show_commented_posts'  => 'on',
 			'show_popular_posts'    => 'on',
 			'show_thumb'            => 'off',
+			'thumb_size'            => 'thumb-80x80',
 			'show_excerpt'          => 'on',
 			'excerpt_size'          => 20,
 		);
@@ -265,6 +272,14 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 		<p>
 			<input class="checkbox" type="checkbox" <?php checked( $instance['show_thumb'], 'on' ); ?> id="<?php echo esc_attr( $this->get_field_id( 'show_thumb' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_thumb' ) ); ?>" />
 			<label for="<?php echo esc_attr( $this->get_field_id( 'show_thumb' ) ); ?>"><?php esc_attr_e( 'Show thumbnail', 'alc-advanced-posts' ); ?></label>
+		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'thumb_size' ) ); ?>"><?php esc_html_e( 'Thumb size:', 'alc-advanced-posts' ); ?></label>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'thumb_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'thumb_size' ) ); ?>" class="widefat" style="width:100%;">
+				<option value="thumb-80x80" <?php echo ( 'thumb-80x80' == $instance['thumb_size'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Small - 80x80', 'alc-advanced-posts' ); ?></option>
+				<option value="thumb-112x84" <?php echo ( 'thumb-112x84' == $instance['thumb_size'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Small - 112x84', 'alc-advanced-posts' ); ?></option>
+			</select>
 		</p>
 
 		<p>

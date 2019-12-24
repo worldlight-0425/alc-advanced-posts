@@ -3,7 +3,7 @@
 Plugin Name: Alchemists Advanced Posts
 Plugin URI: https://themeforest.net/user/dan_fisher/portfolio
 Description: This plugin adds social sharing, post views, likes, custom post types to Alchemists WP Theme.
-Version: 1.2.0
+Version: 2.0.0
 Author: Dan Fisher
 Author URI: https://themeforest.net/user/dan_fisher
 Text Domain: alc-advanced-posts
@@ -195,7 +195,7 @@ function alc_post_social_share_buttons_small() {
 
 	$url = urlencode( get_permalink( $post->ID ));
 	$title = urlencode( get_the_title( $post->ID ));
-	$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail-lg-alt' );
+	$thumbnail = wp_get_attachment_image_url( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail-lg-alt' );
 
 	$alchemists_data  = get_option('alchemists_data');
 	$social_share     = array();
@@ -302,7 +302,7 @@ function alc_post_social_share_buttons() {
 
 	$url = urlencode( get_permalink( $post->ID ));
 	$title = urlencode( get_the_title( $post->ID ));
-	$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail-lg-alt' );
+	$thumbnail = wp_get_attachment_image_url( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail-lg-alt' );
 
 	$alchemists_data  = get_option('alchemists_data');
 	$social_share     = array();
@@ -391,7 +391,7 @@ function alc_post_social_share_buttons_labels() {
 
 	$url = urlencode( get_permalink( $post->ID ));
 	$title = urlencode( get_the_title( $post->ID ));
-	$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail-lg-alt' );
+	$thumbnail = wp_get_attachment_image_url( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail-lg-alt' );
 
 	$alchemists_data  = get_option('alchemists_data');
 	$social_share     = array();
@@ -486,6 +486,95 @@ function alc_post_social_share_buttons_labels() {
 		endif; ?>
 
 	</ul>
+	<?php endif;
+}
+
+
+
+// Social Share buttons with icons
+function alc_post_social_share_buttons_sm() {
+
+	global $post;
+
+	$url = urlencode( get_permalink( $post->ID ));
+	$title = urlencode( get_the_title( $post->ID ));
+	$thumbnail = wp_get_attachment_image_url( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail-lg-alt' );
+
+	$alchemists_data  = get_option('alchemists_data');
+	$social_share     = array();
+
+	$post_social      = isset( $alchemists_data['alchemists__opt-single-post-social'] ) ? esc_html( $alchemists_data['alchemists__opt-single-post-social'] ) : '';
+	if ( isset( $alchemists_data['alchemists__opt-single-post-social-sorter']['enabled'] )) {
+		$social_share = $alchemists_data['alchemists__opt-single-post-social-sorter']['enabled'];
+	}
+
+	if ( $post_social == 1 ) : ?>
+	<div class="post-sharing-compact">
+
+		<?php // Social Sharing
+
+		if ( $social_share ): foreach ($social_share as $key=>$value) {
+			switch($key) {
+
+				case 'social_facebook': ?>
+
+				<a target="_blank" onClick="popup = window.open('https://www.facebook.com/share.php?u=<?php echo $url; ?>&title=<?php echo esc_html( $title ); ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-sm btn-facebook btn-icon" rel="nofollow"><i class="fa fa-facebook"></i></a>
+
+				<?php break;
+
+				case 'social_twitter': ?>
+
+				<a target="_blank" onClick="popup = window.open('https://twitter.com/home?status=<?php echo $title; ?> <?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-sm btn-twitter btn-icon" rel="nofollow"><i class="fa fa-twitter"></i></a>
+
+				<?php break;
+
+				case 'social_google-plus': ?>
+
+				<a target="_blank" onClick="popup = window.open('https://google.com/bookmarks/mark?op=edit&amp;bkmk=<?php echo $url; ?>&amp;title=<?php echo $title; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-sm btn-gplus btn-icon" rel="nofollow"><i class="fa fa-google-plus"></i></a>
+
+				<?php break;
+
+				case 'social_linkedin': ?>
+
+				<a target="_blank" onClick="popup = window.open('https://linkedin.com/shareArticle?mini=true&amp;url=<?php echo $url; ?>&amp;title=<?php echo $title; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-sm btn-linkedin btn-icon" rel="nofollow"><i class="fa fa-linkedin"></i></a>
+
+				<?php break;
+
+				case 'social_vk': ?>
+
+				<a target="_blank" onClick="popup = window.open('https://vk.com/share.php?url=<?php echo $url; ?>&amp;<?php echo $title; ?><?php echo $thumbnail; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-sm btn-vk btn-icon" rel="nofollow"><i class="fa fa-vk"></i></a>
+
+				<?php break;
+
+				case 'social_ok': ?>
+
+				<a target="_blank" onClick="popup = window.open('https://connect.ok.ru/offer?url=<?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-sm btn-odnoklassniki btn-icon" rel="nofollow"><i class="fa fa-odnoklassniki"></i></a>
+
+				<?php break;
+
+				case 'social_whatsapp': ?>
+				
+				<a target="_blank" href="whatsapp://send?text=<?php echo $url; ?>" class="btn btn-default btn-sm btn-whatsapp btn-icon" rel="nofollow"><i class="fa fa-whatsapp"></i></a>
+
+				<?php break;
+
+				case 'social_viber': ?>
+				
+				<a target="_blank" href="viber://forward?text=<?php echo $url; ?>" class="btn btn-default btn-sm btn-viber btn-icon" rel="nofollow"><img src="<?php echo ALCADVPOSTS_PLUGIN_URL ?>/assets/img/icon-viber.svg" alt=""></a>
+
+				<?php break;
+
+				case 'social_telegram': ?>
+
+				<a target="_blank" href="https://telegram.me/share/url?url=<?php echo $url; ?>&text=<?php echo $title; ?>" class="btn btn-default btn-sm btn-telegram btn-icon" rel="nofollow"><i class="fa fa-paper-plane"></i></a>
+
+				<?php break;
+
+			}
+		}
+		endif; ?>
+
+	</div>
 	<?php endif;
 }
 
