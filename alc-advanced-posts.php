@@ -492,7 +492,7 @@ function alc_post_social_share_buttons_labels() {
 
 
 // Social Share buttons with icons
-function alc_post_social_share_buttons_sm() {
+function alc_post_social_share_buttons_icons( $css_class = '' ) {
 
 	global $post;
 
@@ -509,7 +509,7 @@ function alc_post_social_share_buttons_sm() {
 	}
 
 	if ( $post_social == 1 ) : ?>
-	<div class="post-sharing-compact">
+	<div class="post-sharing-compact <?php echo esc_attr( $css_class ); ?>">
 
 		<?php // Social Sharing
 
