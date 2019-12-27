@@ -52,6 +52,7 @@ class Alchemists_Widget_Recent_Videos extends WP_Widget {
 
 		$title        = apply_filters( 'widget_title', isset( $instance['title'] ) ? $instance['title'] : '' );
 		$number       = isset( $instance['number'] ) ? $instance['number'] : 4;
+		$type         = isset( $instance['type'] ) ? $instance['type'] : 'post-format';
 		$orderby      = isset( $instance['orderby'] ) ? $instance['orderby'] : 'date';
 		$popularity   = isset( $instance['popularity'] ) ? $instance['popularity'] : 'likes';
 
@@ -66,46 +67,22 @@ class Alchemists_Widget_Recent_Videos extends WP_Widget {
 		$post_views         = isset( $alchemists_data['alchemists__blog-post-views'] ) ? $alchemists_data['alchemists__blog-post-views'] : true;
 		$post_comments      = isset( $alchemists_data['alchemists__blog-post-comments'] ) ? $alchemists_data['alchemists__blog-post-comments'] : true;
 
-		if ( $orderby == 'meta_value_num' ) {
+		$args = array(
+			'posts_per_page'      => $number,
+			'no_found_rows'       => true,
+			'orderby'             => $orderby,
+			'post_status'         => 'publish',
+			'ignore_sticky_posts' => true,
+		);
 
-			$popularity_meta_key = '';
-			if ( $popularity == 'likes' ) {
-				$popularity_meta_key = '_post_like_count';
-			} else {
-				$popularity_meta_key = 'post_views_count';
-			}
-
-			$args = array(
-				'post_type'           => 'post',
-				'posts_per_page'      => $number,
-				'no_found_rows'       => true,
-				'orderby'             => $orderby,
-				'meta_key'            => $popularity_meta_key,
-				'post_status'         => 'publish',
-				'ignore_sticky_posts' => true,
-				'tax_query' => array(
-					array(
-						'taxonomy' => 'post_format',
-						'field' => 'slug',
-						'terms' => 'post-format-video'
-					)
-				),
-			);
+		if ( $type == 'custom-post-type-video' ) {
+			$args['post_type'] = 'videos';
 		} else {
-			$args = array(
-				'post_type'           => 'post',
-				'posts_per_page'      => $number,
-				'no_found_rows'       => true,
-				'orderby'             => $orderby,
-				'post_status'         => 'publish',
-				'ignore_sticky_posts' => true,
-				'tax_query' => array(
-					array(
-						'taxonomy' => 'post_format',
-						'field' => 'slug',
-						'terms' => 'post-format-video'
-					)
-				),
+			$args['post_type'] = 'post';
+			$args['tax_query'][] = array(
+				'taxonomy' => 'post_format',
+				'field' => 'slug',
+				'terms' => 'post-format-video'
 			);
 		}
 
@@ -168,6 +145,7 @@ class Alchemists_Widget_Recent_Videos extends WP_Widget {
 		$instance['title']        = strip_tags( $new_instance['title'] );
 		$instance['number']       = $new_instance['number'];
 		$instance['orderby']      = $new_instance['orderby'];
+		$instance['type']         = $new_instance['type'];
 		$instance['popularity']   = $new_instance['popularity'];
 
 		return $instance;
@@ -184,6 +162,7 @@ class Alchemists_Widget_Recent_Videos extends WP_Widget {
 			'title'        => esc_html__( 'Recent Videos', 'alc-advanced-posts' ),
 			'number'       => 4,
 			'orderby'      => 'date',
+			'type'         => 'post-format',
 			'popularity'   => 'likes',
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -197,6 +176,14 @@ class Alchemists_Widget_Recent_Videos extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of items to show:', 'alc-advanced-posts' ); ?></label>
 			<input class="tiny-text" type="number" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" step="1" min="1" size="3" value="<?php echo esc_attr( $instance['number'] ); ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>"><?php esc_html_e( 'Source:', 'alc-advanced-posts' ); ?></label>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'type' ) ); ?>" class="widefat" style="width:100%;">
+				<option value="post-format" <?php echo ( 'post-format' == $instance['type'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Video Post Format', 'alc-advanced-posts' ); ?></option>
+				<option value="custom-post-type-video" <?php echo ( 'custom-post-type-video' == $instance['type'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Video Custom Post Type', 'alc-advanced-posts' ); ?></option>
+			</select>
 		</p>
 
 		<p>

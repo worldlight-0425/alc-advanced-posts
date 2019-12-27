@@ -48,6 +48,7 @@ if (!defined('ALCADVPOSTS_VERSION_NUM'))
 include ALCADVPOSTS_PLUGIN_DIR . '/post-like-system/post-like.php';
 
 // Custom Post Types
+include ALCADVPOSTS_PLUGIN_DIR . '/custom-post-types/admin-permalinks-settings.php';
 include ALCADVPOSTS_PLUGIN_DIR . '/custom-post-types/custom-post-types.php';
 
 // Widgets
