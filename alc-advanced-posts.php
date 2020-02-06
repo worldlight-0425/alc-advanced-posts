@@ -3,7 +3,7 @@
 Plugin Name: Alchemists Advanced Posts
 Plugin URI: https://themeforest.net/user/dan_fisher/portfolio
 Description: This plugin adds social sharing, post views, likes, custom post types to Alchemists WP Theme.
-Version: 2.0.0
+Version: 2.0.1
 Author: Dan Fisher
 Author URI: https://themeforest.net/user/dan_fisher
 Text Domain: alc-advanced-posts
@@ -281,7 +281,7 @@ function alc_post_social_share_buttons_small() {
 				case 'social_telegram': ?>
 
 				<li class="social-links__item">
-					<a target="_blank" href="https://telegram.me/share/url?url=<?php echo $url; ?>&text=<?php echo $title; ?>" class="social-links__link social-links__link--telegram" rel="nofollow"><i class="fa fa-paper-plane"></i></a>
+					<a target="_blank" href="https://telegram.me/share/url?url=<?php echo $url; ?>&text=<?php echo $title; ?>" class="social-links__link social-links__link--telegram" rel="nofollow"><i class="fab fa-telegram-plane"></i></a>
 				</li>
 
 				<?php break;
@@ -371,7 +371,7 @@ function alc_post_social_share_buttons() {
 
 				case 'social_telegram': ?>
 
-				<a target="_blank" href="https://telegram.me/share/url?url=<?php echo $url; ?>&text=<?php echo $title; ?>" class="btn btn-default btn-telegram btn-icon btn-block" rel="nofollow"><i class="fa fa-paper-plane"></i> <span class="post-sharing__label hidden-xs"><?php esc_html_e( 'Share on Telegram', 'alc-advanced-posts' ); ?></span></a>
+				<a target="_blank" href="https://telegram.me/share/url?url=<?php echo $url; ?>&text=<?php echo $title; ?>" class="btn btn-default btn-telegram btn-icon btn-block" rel="nofollow"><i class="fab fa-telegram-plane"></i> <span class="post-sharing__label hidden-xs"><?php esc_html_e( 'Share on Telegram', 'alc-advanced-posts' ); ?></span></a>
 
 				<?php break;
 
@@ -567,7 +567,7 @@ function alc_post_social_share_buttons_icons( $css_class = '' ) {
 
 				case 'social_telegram': ?>
 
-				<a target="_blank" href="https://telegram.me/share/url?url=<?php echo $url; ?>&text=<?php echo $title; ?>" class="btn btn-default btn-sm btn-telegram btn-icon" rel="nofollow"><i class="fa fa-paper-plane"></i></a>
+				<a target="_blank" href="https://telegram.me/share/url?url=<?php echo $url; ?>&text=<?php echo $title; ?>" class="btn btn-default btn-sm btn-telegram btn-icon" rel="nofollow"><i class="fab fa-telegram-plane"></i></a>
 
 				<?php break;
 
