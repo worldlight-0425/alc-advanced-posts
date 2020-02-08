@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     2.0.0
- * @version   2.0.0
+ * @version   2.0.1
  */
 
 ?>
@@ -26,10 +26,11 @@
 		</figure>
 
 		<div class="posts__inner card__content">
-			<?php if ( $categories_toggle ) : ?>
-				<?php alchemists_post_category_labels(); ?>
-			<?php endif; ?>
-
+			<?php
+			if ( $categories_toggle ) {
+				alchemists_post_category_labels( 'posts__cat', 'catvideos' );
+			}
+			?>
 			<h6 class="posts__title posts__title--color-hover" title="<?php the_title_attribute(); ?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h6>
 
 			<?php alchemists_entry_footer( false, true); ?>
