@@ -5,19 +5,23 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.2.0
- * @version   1.2.0
+ * @version   2.0.1
  */
 
 ?>
 
 <div <?php post_class( $post_classes ); ?>>
 
-	<?php if ( has_post_thumbnail() && $show_thumb ) : ?>
-	<figure class="<?php echo esc_attr( $thumb_classes ); ?>">
-		<a href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail( $post_thumb_size, array( 'class' => '' )); ?>
-		</a>
-	</figure>
+	<?php if ( $show_thumb ) : ?>
+		<figure class="<?php echo esc_attr( $thumb_classes ); ?>">
+			<a href="<?php the_permalink(); ?>">
+			<?php if ( has_post_thumbnail() ) : ?>
+				<?php the_post_thumbnail( $post_thumb_size, array( 'class' => '' )); ?>
+			<?php else : ?>
+				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-400x400.jpg" alt="">
+			<?php endif; ?>
+			</a>
+		</figure>
 	<?php endif; ?>
 
 	<a href="<?php the_permalink(); ?>" class="posts__cta"></a>
