@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.2.0
- * @version   1.2.0
+ * @version   2.0.2
  */
 
 ?>
@@ -30,6 +30,12 @@
 		<time datetime="<?php esc_attr( the_time('c') ); ?>" class="posts__date">
 			<?php the_time( get_option('date_format') ); ?>
 		</time>
+
+		<?php if ( 'enable' == $excerpt_on ) : ?>
+			<div class="posts__excerpt">
+				<?php echo alchemists_string_limit_words( get_the_excerpt(), $excerpt_size); ?>
+			</div>
+		<?php endif; ?>
 
 	</div>
 

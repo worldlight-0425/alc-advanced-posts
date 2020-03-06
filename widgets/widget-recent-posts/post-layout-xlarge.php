@@ -37,35 +37,37 @@
 			<?php the_time( get_option('date_format') ); ?>
 		</time>
 
-		<footer class="posts__footer card__footer">
-			<div class="post-author">
-				<figure class="post-author__avatar">
-					<?php echo get_avatar( get_the_author_meta('email'), '24' ); ?>
-				</figure>
-				<div class="post-author__info">
-					<h4 class="post-author__name">
-						<?php the_author(); ?>
-					</h4>
+		<?php if ( 'default' == $meta_on || 'enable' == $meta_on ) : ?>
+			<footer class="posts__footer card__footer">
+				<div class="post-author">
+					<figure class="post-author__avatar">
+						<?php echo get_avatar( get_the_author_meta('email'), '24' ); ?>
+					</figure>
+					<div class="post-author__info">
+						<h4 class="post-author__name">
+							<?php the_author(); ?>
+						</h4>
+					</div>
 				</div>
-			</div>
-			<div class="post__meta meta">
-				<?php
-				if ( $post_views ) {
-					if ( function_exists( 'alchemists_getPostViews' ) ) {
-						echo '<div class="meta__item meta__item--views">' . alchemists_getPostViews(get_the_ID()) . '</div>';
+				<div class="post__meta meta">
+					<?php
+					if ( $post_views ) {
+						if ( function_exists( 'alchemists_getPostViews' ) ) {
+							echo '<div class="meta__item meta__item--views">' . alchemists_getPostViews(get_the_ID()) . '</div>';
+						}
 					}
-				}
-				if ( $post_likes ) {
-					if ( function_exists( 'get_simple_likes_button') ) {
-						echo get_simple_likes_button( get_the_ID() );
+					if ( $post_likes ) {
+						if ( function_exists( 'get_simple_likes_button') ) {
+							echo get_simple_likes_button( get_the_ID() );
+						}
 					}
-				}
-				if ( $post_comments ) {
-					alchemists_entry_comments();
-				}
-				?>
-			</div>
-		</footer>
+					if ( $post_comments ) {
+						alchemists_entry_comments();
+					}
+					?>
+				</div>
+			</footer>
+		<?php endif; ?>
 
 	</div>
 

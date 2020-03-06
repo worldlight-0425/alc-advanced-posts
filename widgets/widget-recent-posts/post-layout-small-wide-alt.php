@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     2.0.0
- * @version   2.0.0
+ * @version   2.0.2
  */
 
 ?>
@@ -37,8 +37,10 @@
 
 	<div class="clearfix"></div>
 
-	<div class="posts__excerpt">
-		<?php echo alchemists_string_limit_words( get_the_excerpt(), $excerpt_size); ?>
-	</div>
+	<?php if ( 'default' == $excerpt_on || 'enable' == $excerpt_on ) : ?>
+		<div class="posts__excerpt">
+			<?php echo alchemists_string_limit_words( get_the_excerpt(), $excerpt_size); ?>
+		</div>
+	<?php endif; ?>
 
 </div>

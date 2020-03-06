@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.2.0
- * @version   1.2.0
+ * @version   2.0.2
  */
 
 ?>
@@ -30,34 +30,38 @@
 			<?php the_time( get_option('date_format') ); ?>
 		</time>
 
-		<div class="posts__excerpt">
-			<?php echo alchemists_string_limit_words( get_the_excerpt(), $excerpt_size); ?>
-		</div>
+		<?php if ( 'default' == $excerpt_on || 'enable' == $excerpt_on ) : ?>
+			<div class="posts__excerpt">
+				<?php echo alchemists_string_limit_words( get_the_excerpt(), $excerpt_size); ?>
+			</div>
+		<?php endif; ?>
 	</div>
 
-	<div class="posts__footer">
-		<div class="post-author">
-			<figure class="post-author__avatar">
-				<?php echo get_avatar( get_the_author_meta('email'), '24' ); ?>
-			</figure>
-			<div class="post-author__info">
-				<h4 class="post-author__name">
-					<?php the_author(); ?>
-				</h4>
+	<?php if ( 'default' == $meta_on || 'enable' == $meta_on ) : ?>
+		<div class="posts__footer">
+			<div class="post-author">
+				<figure class="post-author__avatar">
+					<?php echo get_avatar( get_the_author_meta('email'), '24' ); ?>
+				</figure>
+				<div class="post-author__info">
+					<h4 class="post-author__name">
+						<?php the_author(); ?>
+					</h4>
+				</div>
+			</div>
+			<div class="post__meta meta">
+				<?php
+				if ( $post_likes ) {
+					if ( function_exists( 'get_simple_likes_button') ) {
+						echo get_simple_likes_button( get_the_ID() );
+					}
+				}
+				if ( $post_comments ) {
+					alchemists_entry_comments();
+				}
+				?>
 			</div>
 		</div>
-		<div class="post__meta meta">
-			<?php
-			if ( $post_likes ) {
-				if ( function_exists( 'get_simple_likes_button') ) {
-					echo get_simple_likes_button( get_the_ID() );
-				}
-			}
-			if ( $post_comments ) {
-				alchemists_entry_comments();
-			}
-			?>
-		</div>
-	</div>
+	<?php endif; ?>
 
 </div>

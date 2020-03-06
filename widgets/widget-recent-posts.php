@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   2.0.0
+ * @version   2.0.2
  */
 
 
@@ -59,6 +59,8 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 		$numbered     = isset( $instance['numbered'] ) ? true : false;
 		$layout_style = isset( $instance['layout_style'] ) ? $instance['layout_style'] : 'small';
 		$excerpt_size = isset( $instance['excerpt_size'] ) ? $instance['excerpt_size'] : 20;
+		$excerpt_on   = isset( $instance['excerpt_on'] ) ? $instance['excerpt_on'] : 'default';
+		$meta_on      = isset( $instance['meta_on'] ) ? $instance['meta_on'] : 'default';
 
 		echo wp_kses_post( $before_widget );
 
@@ -169,7 +171,7 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 
 		<div class="<?php echo esc_attr( implode( ' ', $posts_list_classes ) ); ?>">
 			<?php
-			while ($wp_query->have_posts()) : $wp_query->the_post();
+			while ( $wp_query->have_posts() ) : $wp_query->the_post();
 				// get post category class
 				$post_class = alchemists_post_category_class();
 				$post_classes[] = $post_class;
@@ -202,7 +204,9 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 		$instance['show_thumb']   = $new_instance['show_thumb'];
 		$instance['numbered']     = $new_instance['numbered'];
 		$instance['layout_style'] = $new_instance['layout_style'];
+		$instance['excerpt_on']   = $new_instance['excerpt_on'];
 		$instance['excerpt_size'] = $new_instance['excerpt_size'];
+		$instance['meta_on']      = $new_instance['meta_on'];
 
 		return $instance;
 	}
@@ -223,7 +227,9 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 			'show_thumb'   => 'on',
 			'numbered'     => 'off',
 			'layout_style' => 'small',
+			'excerpt_on'   => 'default',
 			'excerpt_size' => 20,
+			'meta_on'      => 'default',
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
@@ -294,9 +300,27 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 				<option value="xlarge" <?php echo ( 'xlarge' == $instance['layout_style'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Extra Large - 400x400', 'alc-advanced-posts' ); ?></option>
 			</select>
 		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'excerpt_on' ) ); ?>"><?php esc_html_e( 'Excerpt:', 'alc-advanced-posts' ); ?></label>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'excerpt_on' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt_on' ) ); ?>" class="widefat" style="width:100%;">
+				<option value="default" <?php echo ( 'default' == $instance['excerpt_on'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Default', 'alc-advanced-posts' ); ?></option>
+				<option value="enable" <?php echo ( 'enable' == $instance['excerpt_on'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Enable', 'alc-advanced-posts' ); ?></option>
+				<option value="disable" <?php echo ( 'disable' == $instance['excerpt_on'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Disable', 'alc-advanced-posts' ); ?></option>
+			</select>
+		</p>
+
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'excerpt_size' ) ); ?>"><?php esc_html_e( 'Excerpt size (number of words):', 'alc-advanced-posts' ); ?></label>
-			<input class="tiny-text" type="number" id="<?php echo esc_attr( $this->get_field_id( 'excerpt_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt_size' ) ); ?>" step="1" min="1" size="3" value="<?php echo esc_attr( $instance['excerpt_size'] ); ?>" />
+			<input class="tiny-text" type="number" id="<?php echo esc_attr( $this->get_field_id( 'excerpt_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'excerpt_size' ) ); ?>" step="1" min="0" size="3" value="<?php echo esc_attr( $instance['excerpt_size'] ); ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'meta_on' ) ); ?>"><?php esc_html_e( 'Meta:', 'alc-advanced-posts' ); ?></label>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'meta_on' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'meta_on' ) ); ?>" class="widefat" style="width:100%;">
+				<option value="default" <?php echo ( 'default' == $instance['meta_on'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Default', 'alc-advanced-posts' ); ?></option>
+				<option value="disable" <?php echo ( 'disable' == $instance['meta_on'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Disable', 'alc-advanced-posts' ); ?></option>
+			</select>
 		</p>
 		<?php
 
