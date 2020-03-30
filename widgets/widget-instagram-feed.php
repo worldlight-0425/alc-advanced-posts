@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   1.1.0
+ * @version   2.0.3
  */
 
 
@@ -37,7 +37,7 @@ class Alchemists_Widget_Instagram_Feed extends WP_Widget {
 			'id_base' => 'instagram-widget'
 		);
 
-		parent::__construct( 'instagram-widget', 'ALC - Instagram Feed', $widget_ops, $control_ops );
+		parent::__construct( 'instagram-widget', 'ALC - Instagram Feed (Deprecated)', $widget_ops, $control_ops );
 
 		//enqueue JS on frontend only if widget is active.
 		if(is_active_widget(false, false, $this->id_base)) {
