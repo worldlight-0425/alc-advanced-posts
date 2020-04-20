@@ -3,7 +3,7 @@
 Plugin Name: Alchemists Advanced Posts
 Plugin URI: https://themeforest.net/user/dan_fisher/portfolio
 Description: This plugin adds social sharing, post views, likes, custom post types to Alchemists WP Theme.
-Version: 2.0.3
+Version: 2.0.4
 Author: Dan Fisher
 Author URI: https://themeforest.net/user/dan_fisher
 Text Domain: alc-advanced-posts
@@ -225,7 +225,7 @@ function alc_post_social_share_buttons_small() {
 				case 'social_twitter': ?>
 
 				<li class="social-links__item">
-					<a target="_blank" onClick="popup = window.open('https://twitter.com/home?status=<?php echo $title; ?> <?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
+					<a target="_blank" onClick="popup = window.open('https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--twitter" rel="nofollow"><i class="fa fa-twitter"></i></a>
 				</li>
 
 				<?php break;
@@ -329,7 +329,7 @@ function alc_post_social_share_buttons() {
 
 				case 'social_twitter': ?>
 
-				<a target="_blank" onClick="popup = window.open('https://twitter.com/home?status=<?php echo $title; ?> <?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-twitter btn-icon btn-block" rel="nofollow"><i class="fa fa-twitter"></i> <span class="post-sharing__label hidden-xs"><?php esc_html_e( 'Share on Twitter', 'alc-advanced-posts' ); ?></span></a>
+				<a target="_blank" onClick="popup = window.open('https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-twitter btn-icon btn-block" rel="nofollow"><i class="fa fa-twitter"></i> <span class="post-sharing__label hidden-xs"><?php esc_html_e( 'Share on Twitter', 'alc-advanced-posts' ); ?></span></a>
 
 				<?php break;
 
@@ -421,7 +421,7 @@ function alc_post_social_share_buttons_labels() {
 				case 'social_twitter': ?>
 
 				<li class="social-links__item">
-					<a target="_blank" onClick="popup = window.open('https://twitter.com/home?status=<?php echo $title; ?> <?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--twitter" rel="nofollow"><?php esc_html_e( 'Share on Twitter', 'alc-advanced-posts' ); ?></a>
+					<a target="_blank" onClick="popup = window.open('https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="social-links__link social-links__link--twitter" rel="nofollow"><?php esc_html_e( 'Share on Twitter', 'alc-advanced-posts' ); ?></a>
 				</li>
 
 				<?php break;
@@ -525,7 +525,7 @@ function alc_post_social_share_buttons_icons( $css_class = '' ) {
 
 				case 'social_twitter': ?>
 
-				<a target="_blank" onClick="popup = window.open('https://twitter.com/home?status=<?php echo $title; ?> <?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-sm btn-twitter btn-icon" rel="nofollow"><i class="fa fa-twitter"></i></a>
+				<a target="_blank" onClick="popup = window.open('https://twitter.com/intent/tweet?text=<?php echo $title; ?>&amp;url=<?php echo $url; ?>', 'PopupPage', 'height=450,width=500,scrollbars=yes,resizable=yes'); return false" href="#" class="btn btn-default btn-sm btn-twitter btn-icon" rel="nofollow"><i class="fa fa-twitter"></i></a>
 
 				<?php break;
 
