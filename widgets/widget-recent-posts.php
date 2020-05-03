@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   2.0.2
+ * @version   2.0.5
  */
 
 
@@ -72,6 +72,7 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 		$post_likes         = isset( $alchemists_data['alchemists__blog-post-likes'] ) ? $alchemists_data['alchemists__blog-post-likes'] : true;
 		$post_views         = isset( $alchemists_data['alchemists__blog-post-views'] ) ? $alchemists_data['alchemists__blog-post-views'] : true;
 		$post_comments      = isset( $alchemists_data['alchemists__blog-post-comments'] ) ? $alchemists_data['alchemists__blog-post-comments'] : true;
+		$post_author        = isset( $alchemists_data['alchemists__blog-post-author'] ) ? $alchemists_data['alchemists__blog-post-author'] : true;
 
 		if ( $orderby == 'meta_value_num' ) {
 

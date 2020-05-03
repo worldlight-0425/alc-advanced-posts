@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.2.0
- * @version   2.0.1
+ * @version   2.0.5
  */
 
 ?>
@@ -39,16 +39,20 @@
 
 		<?php if ( 'default' == $meta_on || 'enable' == $meta_on ) : ?>
 			<footer class="posts__footer card__footer">
-				<div class="post-author">
-					<figure class="post-author__avatar">
-						<?php echo get_avatar( get_the_author_meta('email'), '24' ); ?>
-					</figure>
-					<div class="post-author__info">
-						<h4 class="post-author__name">
-							<?php the_author(); ?>
-						</h4>
+
+				<?php if ( $post_author ) : ?>
+					<div class="post-author">
+						<figure class="post-author__avatar">
+							<?php echo get_avatar( get_the_author_meta('email'), '24' ); ?>
+						</figure>
+						<div class="post-author__info">
+							<h4 class="post-author__name">
+								<?php the_author(); ?>
+							</h4>
+						</div>
 					</div>
-				</div>
+				<?php endif; ?>
+
 				<div class="post__meta meta">
 					<?php
 					if ( $post_views ) {
