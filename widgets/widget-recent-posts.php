@@ -109,8 +109,6 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 			$args['cat'] = $cat;
 		}
 
-		echo '<pre>' . var_export($cat, true) . '</pre>';
-
 		$alchemists_data = get_option('alchemists_data');
 		$categories_toggle = isset( $alchemists_data['alchemists__posts-categories'] ) ? $alchemists_data['alchemists__posts-categories'] : 1;
 
