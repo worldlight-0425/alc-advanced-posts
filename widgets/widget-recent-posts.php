@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   2.0.5
+ * @version   2.0.6
  */
 
 
@@ -87,23 +87,29 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 				'post_type'           => 'post',
 				'posts_per_page'      => $number,
 				'no_found_rows'       => true,
-				'orderby'             => $orderby,
-				'cat'                 => $cat,
+				'orderby'             => $popularity_meta_key,
 				'meta_key'            => $popularity_meta_key,
 				'post_status'         => 'publish',
 				'ignore_sticky_posts' => true,
 			);
+
 		} else {
 			$args = array(
 				'post_type'           => 'post',
 				'posts_per_page'      => $number,
 				'no_found_rows'       => true,
 				'orderby'             => $orderby,
-				'cat'                 => $cat,
 				'post_status'         => 'publish',
 				'ignore_sticky_posts' => true,
 			);
 		}
+
+		// Filter by Categories if set
+		if ( $cat ) {
+			$args['cat'] = $cat;
+		}
+
+		echo '<pre>' . var_export($cat, true) . '</pre>';
 
 		$alchemists_data = get_option('alchemists_data');
 		$categories_toggle = isset( $alchemists_data['alchemists__posts-categories'] ) ? $alchemists_data['alchemists__posts-categories'] : 1;
