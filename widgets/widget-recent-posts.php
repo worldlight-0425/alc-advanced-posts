@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   2.0.6
+ * @version   2.0.7
  */
 
 
@@ -74,34 +74,24 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 		$post_comments      = isset( $alchemists_data['alchemists__blog-post-comments'] ) ? $alchemists_data['alchemists__blog-post-comments'] : true;
 		$post_author        = isset( $alchemists_data['alchemists__blog-post-author'] ) ? $alchemists_data['alchemists__blog-post-author'] : true;
 
-		if ( $orderby == 'meta_value_num' ) {
+		$args = array(
+			'post_type'           => 'post',
+			'post_status'         => 'publish',
+			'posts_per_page'      => $number,
+			'orderby'             => $orderby,
+			'no_found_rows'       => true,
+			'ignore_sticky_posts' => true,
+		);
 
-			$popularity_meta_key = '';
+		// Order by Likes or Views
+		if ( $orderby == 'meta_value_num' ) {
 			if ( $popularity == 'likes' ) {
 				$popularity_meta_key = '_post_like_count';
 			} else {
 				$popularity_meta_key = 'post_views_count';
 			}
 
-			$args = array(
-				'post_type'           => 'post',
-				'posts_per_page'      => $number,
-				'no_found_rows'       => true,
-				'orderby'             => $popularity_meta_key,
-				'meta_key'            => $popularity_meta_key,
-				'post_status'         => 'publish',
-				'ignore_sticky_posts' => true,
-			);
-
-		} else {
-			$args = array(
-				'post_type'           => 'post',
-				'posts_per_page'      => $number,
-				'no_found_rows'       => true,
-				'orderby'             => $orderby,
-				'post_status'         => 'publish',
-				'ignore_sticky_posts' => true,
-			);
+			$args['meta_key'] = $popularity_meta_key;
 		}
 
 		// Filter by Categories if set

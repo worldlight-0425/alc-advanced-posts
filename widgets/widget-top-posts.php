@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   2.0.0
+ * @version   2.0.7
  */
 
 
@@ -156,18 +156,18 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 				<div role="tabpanel" class="tab-pane fade" id="widget-tabbed-sm-popular-<?php echo esc_attr( $unique_id ); ?>">
 
 					<?php
-						$popularity_meta_key = '';
 						if ( $popularity == 'likes' ) {
 							$popularity_meta_key = '_post_like_count';
 						} else {
 							$popularity_meta_key = 'post_views_count';
 						}
 						$args_popular = array(
+							'post_type'           => 'post',
+							'post_status'         => 'publish',
 							'posts_per_page'      => $posts_popular_count,
-							'orderby'             => $popularity_meta_key,
+							'orderby'             => 'meta_value_num',
 							'meta_key'            => $popularity_meta_key,
 							'no_found_rows'       => true,
-							'post_status'         => 'publish',
 							'ignore_sticky_posts' => true
 						);
 
