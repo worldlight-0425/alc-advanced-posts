@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alchemists Advanced Posts\n"
-"POT-Creation-Date: 2019-06-06 18:32+0100\n"
-"PO-Revision-Date: 2019-06-06 18:32+0100\n"
+"POT-Creation-Date: 2020-05-13 14:39+0100\n"
+"PO-Revision-Date: 2020-05-13 14:39+0100\n"
 "Last-Translator: Dan Fisher <dan.fisher85@yahoo.com>\n"
 "Language-Team: Dan Fisher <dan.fisher85@yahoo.com>\n"
 "Language: en\n"
@@ -18,133 +18,211 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: alc-advanced-posts.php:325 alc-advanced-posts.php:415
+#: alc-advanced-posts.php:326 alc-advanced-posts.php:416
 msgid "Share on Facebook"
 msgstr ""
 
-#: alc-advanced-posts.php:331 alc-advanced-posts.php:423
+#: alc-advanced-posts.php:332 alc-advanced-posts.php:424
 msgid "Share on Twitter"
 msgstr ""
 
-#: alc-advanced-posts.php:337 alc-advanced-posts.php:431
+#: alc-advanced-posts.php:338 alc-advanced-posts.php:432
 msgid "Share on Google+"
 msgstr ""
 
-#: alc-advanced-posts.php:343
+#: alc-advanced-posts.php:344
 msgid "Share on Linkedin"
 msgstr ""
 
-#: alc-advanced-posts.php:349 alc-advanced-posts.php:447
+#: alc-advanced-posts.php:350 alc-advanced-posts.php:448
 msgid "Share on VK"
 msgstr ""
 
-#: alc-advanced-posts.php:355 alc-advanced-posts.php:455
+#: alc-advanced-posts.php:356 alc-advanced-posts.php:456
 msgid "Share on OK"
 msgstr ""
 
-#: alc-advanced-posts.php:361 alc-advanced-posts.php:463
+#: alc-advanced-posts.php:362 alc-advanced-posts.php:464
 msgid "Share on WhatsApp"
 msgstr ""
 
-#: alc-advanced-posts.php:367 alc-advanced-posts.php:471
+#: alc-advanced-posts.php:368 alc-advanced-posts.php:472
 msgid "Share on Viber"
 msgstr ""
 
-#: alc-advanced-posts.php:373 alc-advanced-posts.php:479
+#: alc-advanced-posts.php:374 alc-advanced-posts.php:480
 msgid "Share on Telegram"
 msgstr ""
 
-#: alc-advanced-posts.php:439
+#: alc-advanced-posts.php:440
 msgid "Share on LinkedIn"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:20
+#: custom-post-types/admin-permalinks-settings.php:29
+#: custom-post-types/custom-post-types.php:30
+msgid "Albums"
+msgstr ""
+
+#: custom-post-types/admin-permalinks-settings.php:30
+#: custom-post-types/custom-post-types.php:97
+msgid "Videos"
+msgstr ""
+
+#: custom-post-types/admin-permalinks-settings.php:42
+msgid "Alchemists"
+msgstr ""
+
+#: custom-post-types/admin-permalinks-settings.php:70
+msgid ""
+"These settings control the permalinks used for Alchemists custom post types. "
+"These settings only apply when <strong>not using \"plain\" permalinks above</"
+"strong>."
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:19
 msgctxt "post type general name"
 msgid "Albums"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:21
+#: custom-post-types/custom-post-types.php:20
 msgctxt "post type singular name"
 msgid "Album"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:22
+#: custom-post-types/custom-post-types.php:21
 msgctxt "Album"
 msgid "Add New"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:23
+#: custom-post-types/custom-post-types.php:22
 msgid "Add New Album"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:24
+#: custom-post-types/custom-post-types.php:23
 msgid "Edit Album"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:25
+#: custom-post-types/custom-post-types.php:24
 msgid "New Album"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:26
+#: custom-post-types/custom-post-types.php:25
 msgid "View Album"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:27
+#: custom-post-types/custom-post-types.php:26
 msgid "Search Albums"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:28
+#: custom-post-types/custom-post-types.php:27
 msgid "No albums found"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:29
+#: custom-post-types/custom-post-types.php:28
 msgid "No albums found in Trash"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:31
-msgid "Albums"
-msgstr ""
-
-#: custom-post-types/custom-post-types.php:51
+#: custom-post-types/custom-post-types.php:52
 msgctxt "category general name"
 msgid "Albums Categories"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:52
+#: custom-post-types/custom-post-types.php:53
 msgctxt "taxonomy singular name"
 msgid "Albums Category"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:53
+#: custom-post-types/custom-post-types.php:54
+#: custom-post-types/custom-post-types.php:125
 msgid "Search Category"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:54
+#: custom-post-types/custom-post-types.php:55
+#: custom-post-types/custom-post-types.php:126
 msgid "All Categories"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:55
+#: custom-post-types/custom-post-types.php:56
+#: custom-post-types/custom-post-types.php:127
 msgid "Parent Category"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:56
+#: custom-post-types/custom-post-types.php:57
+#: custom-post-types/custom-post-types.php:128
 msgid "Parent Category:"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:57
+#: custom-post-types/custom-post-types.php:58
+#: custom-post-types/custom-post-types.php:129
 msgid "Edit Category"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:58
+#: custom-post-types/custom-post-types.php:59
+#: custom-post-types/custom-post-types.php:130
 msgid "Update Category"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:59
+#: custom-post-types/custom-post-types.php:60
+#: custom-post-types/custom-post-types.php:131
 msgid "Add New Category"
 msgstr ""
 
-#: custom-post-types/custom-post-types.php:60
+#: custom-post-types/custom-post-types.php:61
+#: custom-post-types/custom-post-types.php:132
 msgid "New Category Name"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:86
+msgctxt "post type general name"
+msgid "Videos"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:87
+msgctxt "post type singular name"
+msgid "Video"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:88
+msgctxt "Video"
+msgid "Add New"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:89
+msgid "Add New Video"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:90
+msgid "Edit Video"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:91
+msgid "New Video"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:92
+msgid "View Video"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:93
+msgid "Search Videos"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:94
+msgid "No videos found"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:95
+msgid "No videos found in Trash"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:123
+msgctxt "category general name"
+msgid "Videos Categories"
+msgstr ""
+
+#: custom-post-types/custom-post-types.php:124
+msgctxt "taxonomy singular name"
+msgid "Videos Category"
 msgstr ""
 
 #: post-like-system/post-like.php:32 post-like-system/post-like.php:225
@@ -163,100 +241,124 @@ msgstr ""
 msgid "Display Contact Info as a widget."
 msgstr ""
 
-#: widgets/widget-contact-info.php:162
+#: widgets/widget-contact-info.php:168
 msgid "Facebook"
 msgstr ""
 
-#: widgets/widget-contact-info.php:168
+#: widgets/widget-contact-info.php:174
 msgid "Twitter"
 msgstr ""
 
-#: widgets/widget-contact-info.php:174
+#: widgets/widget-contact-info.php:180
 msgid "Google+"
 msgstr ""
 
-#: widgets/widget-contact-info.php:180
+#: widgets/widget-contact-info.php:186
 msgid "Instagram"
 msgstr ""
 
-#: widgets/widget-contact-info.php:186
+#: widgets/widget-contact-info.php:192
 msgid "Telegram"
 msgstr ""
 
-#: widgets/widget-contact-info.php:192
+#: widgets/widget-contact-info.php:198
 msgid "Snapchat"
 msgstr ""
 
-#: widgets/widget-contact-info.php:198
+#: widgets/widget-contact-info.php:204
 msgid "Twitch"
 msgstr ""
 
-#: widgets/widget-contact-info.php:265 widgets/widget-instagram-feed.php:153
-#: widgets/widget-recent-comments.php:177 widgets/widget-recent-posts.php:244
-#: widgets/widget-top-posts.php:238
+#: widgets/widget-contact-info.php:296 widgets/widget-instagram-feed.php:153
+#: widgets/widget-recent-comments.php:177 widgets/widget-recent-posts.php:233
+#: widgets/widget-recent-videos.php:172 widgets/widget-top-posts.php:245
 msgid "Title:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:270
+#: widgets/widget-contact-info.php:301
 msgid "Short Info:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:275
+#: widgets/widget-contact-info.php:306
 msgid "1st Label:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:280
+#: widgets/widget-contact-info.php:311
 msgid "1st Email, Link or Phone:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:285
+#: widgets/widget-contact-info.php:316
 msgid "1st Custom Icon:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:287 widgets/widget-contact-info.php:303
+#: widgets/widget-contact-info.php:318 widgets/widget-contact-info.php:334
 msgid ""
 "Add your custom icon, e.g. <code>&lt;i class=\"fa fa-user\"&gt;&lt;/i&gt;</"
 "code> or <code>&lt;img src=\"PATH_TO_IMAGE\" /&gt;</code>"
 msgstr ""
 
-#: widgets/widget-contact-info.php:291
+#: widgets/widget-contact-info.php:322
 msgid "2nd Label:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:296
+#: widgets/widget-contact-info.php:327
 msgid "2nd Email, Link or Phone:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:301
+#: widgets/widget-contact-info.php:332
 msgid "2nd Custom Icon:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:307
+#: widgets/widget-contact-info.php:338
 msgid "Social - Facebook:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:312
+#: widgets/widget-contact-info.php:343
 msgid "Social - Twitter:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:317
+#: widgets/widget-contact-info.php:348
 msgid "Social - Google+:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:322
+#: widgets/widget-contact-info.php:353
 msgid "Social - Instagram:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:327
+#: widgets/widget-contact-info.php:358
 msgid "Social - Telegram:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:332
+#: widgets/widget-contact-info.php:363
 msgid "Social - Snapchat:"
 msgstr ""
 
-#: widgets/widget-contact-info.php:337
+#: widgets/widget-contact-info.php:368
 msgid "Social - Twitch:"
+msgstr ""
+
+#: widgets/widget-contact-info.php:375
+msgid "Social - Custom 1 Title:"
+msgstr ""
+
+#: widgets/widget-contact-info.php:379
+msgid "Social - Custom 1 URL:"
+msgstr ""
+
+#: widgets/widget-contact-info.php:383
+msgid "Social - Custom 1 Icon:"
+msgstr ""
+
+#: widgets/widget-contact-info.php:389
+msgid "Social - Custom 2 Title:"
+msgstr ""
+
+#: widgets/widget-contact-info.php:393
+msgid "Social - Custom 2 URL:"
+msgstr ""
+
+#: widgets/widget-contact-info.php:397
+msgid "Social - Custom 2 Icon:"
 msgstr ""
 
 #: widgets/widget-instagram-feed.php:34
@@ -339,102 +441,157 @@ msgstr ""
 msgid "Display your posts."
 msgstr ""
 
-#: widgets/widget-recent-posts.php:230
+#: widgets/widget-recent-posts.php:217
 msgid "Recent Posts"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:234 widgets/widget-recent-posts.php:272
+#: widgets/widget-recent-posts.php:221 widgets/widget-recent-posts.php:261
 msgid "All"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:249
+#: widgets/widget-recent-posts.php:238 widgets/widget-recent-videos.php:177
 msgid "Number of items to show:"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:254
+#: widgets/widget-recent-posts.php:243 widgets/widget-recent-videos.php:190
 msgid "Order by:"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:256
+#: widgets/widget-recent-posts.php:245 widgets/widget-recent-videos.php:192
 msgid "Date"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:257
+#: widgets/widget-recent-posts.php:246 widgets/widget-recent-videos.php:193
 msgid "Popularity"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:262 widgets/widget-top-posts.php:258
+#: widgets/widget-recent-posts.php:251 widgets/widget-recent-videos.php:198
+#: widgets/widget-top-posts.php:265
 msgid "Popularity:"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:264 widgets/widget-top-posts.php:260
+#: widgets/widget-recent-posts.php:253 widgets/widget-recent-videos.php:200
+#: widgets/widget-top-posts.php:267
 msgid "Likes"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:265 widgets/widget-top-posts.php:261
+#: widgets/widget-recent-posts.php:254 widgets/widget-recent-videos.php:201
+#: widgets/widget-top-posts.php:268
 msgid "Views"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:270
+#: widgets/widget-recent-posts.php:259
 msgid "Category:"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:290 widgets/widget-top-posts.php:267
+#: widgets/widget-recent-posts.php:279 widgets/widget-top-posts.php:274
 msgid "Show thumbnail"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:295
+#: widgets/widget-recent-posts.php:284
 msgid "Numbered List?"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:299
+#: widgets/widget-recent-posts.php:288 widgets/widget-top-posts.php:278
 msgid "Thumb size:"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:301
-msgid "Small"
+#: widgets/widget-recent-posts.php:290 widgets/widget-top-posts.php:280
+msgid "Small - 80x80"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:302
-msgid "Extra Small"
+#: widgets/widget-recent-posts.php:291
+msgid "Small - 90x68"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:292 widgets/widget-top-posts.php:281
+msgid "Small - 112x84"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:293
+msgid "Extra Small - 50x50"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:294
+msgid "Large - 380x270"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:295
+msgid "Extra Large - 400x400"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:300
+msgid "Excerpt:"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:302 widgets/widget-recent-posts.php:316
+msgid "Default"
 msgstr ""
 
 #: widgets/widget-recent-posts.php:303
-msgid "Large"
+msgid "Enable"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:307 widgets/widget-top-posts.php:276
+#: widgets/widget-recent-posts.php:304 widgets/widget-recent-posts.php:317
+msgid "Disable"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:309 widgets/widget-top-posts.php:291
 msgid "Excerpt size (number of words):"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:314
+msgid "Meta:"
+msgstr ""
+
+#: widgets/widget-recent-videos.php:34
+msgid "Display your videos."
+msgstr ""
+
+#: widgets/widget-recent-videos.php:162
+msgid "Recent Videos"
+msgstr ""
+
+#: widgets/widget-recent-videos.php:182
+msgid "Source:"
+msgstr ""
+
+#: widgets/widget-recent-videos.php:184
+msgid "Video Post Format"
+msgstr ""
+
+#: widgets/widget-recent-videos.php:185
+msgid "Video Custom Post Type"
 msgstr ""
 
 #: widgets/widget-top-posts.php:34
 msgid "Newest, Most Commented and Popular posts."
 msgstr ""
 
-#: widgets/widget-top-posts.php:81
+#: widgets/widget-top-posts.php:86
 msgid "Newest"
 msgstr ""
 
-#: widgets/widget-top-posts.php:84
+#: widgets/widget-top-posts.php:89
 msgid "Most Commented"
 msgstr ""
 
-#: widgets/widget-top-posts.php:87
+#: widgets/widget-top-posts.php:92
 msgid "Popular"
 msgstr ""
 
-#: widgets/widget-top-posts.php:243
+#: widgets/widget-top-posts.php:250
 msgid "Number of newest posts:"
 msgstr ""
 
-#: widgets/widget-top-posts.php:248
+#: widgets/widget-top-posts.php:255
 msgid "Number of most commented posts:"
 msgstr ""
 
-#: widgets/widget-top-posts.php:253
+#: widgets/widget-top-posts.php:260
 msgid "Number of popular posts:"
 msgstr ""
 
-#: widgets/widget-top-posts.php:272
+#: widgets/widget-top-posts.php:287
 msgid "Show excerpt"
 msgstr ""
