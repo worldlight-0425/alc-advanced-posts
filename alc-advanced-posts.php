@@ -3,7 +3,7 @@
 Plugin Name: Alchemists Advanced Posts
 Plugin URI: https://themeforest.net/user/dan_fisher/portfolio
 Description: This plugin adds social sharing, post views, likes, custom post types to Alchemists WP Theme.
-Version: 2.0.7
+Version: 2.0.8
 Author: Dan Fisher
 Author URI: https://themeforest.net/user/dan_fisher
 Text Domain: alc-advanced-posts
@@ -37,7 +37,7 @@ if (!defined('ALCADVPOSTS_VERSION_KEY'))
 		define('ALCADVPOSTS_VERSION_KEY', 'alcsocial_version');
 
 if (!defined('ALCADVPOSTS_VERSION_NUM'))
-		define('ALCADVPOSTS_VERSION_NUM', '2.0.5');
+		define('ALCADVPOSTS_VERSION_NUM', '2.0.8');
 
 
 /*
