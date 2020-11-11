@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.2.0
- * @version   2.0.5
+ * @version   2.0.9
  */
 
 ?>
@@ -21,6 +21,7 @@
 				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-400x400.jpg" alt="">
 			<?php endif; ?>
 			</a>
+			<?php do_action( 'alchemists_after_post_featured_img' ); ?>
 		</figure>
 	<?php endif; ?>
 

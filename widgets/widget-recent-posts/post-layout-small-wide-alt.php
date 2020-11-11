@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     2.0.0
- * @version   2.0.2
+ * @version   2.0.9
  */
 
 ?>
@@ -17,6 +17,7 @@
 		<a href="<?php the_permalink(); ?>">
 			<?php the_post_thumbnail( $post_thumb_size, array( 'class' => '' )); ?>
 		</a>
+		<?php do_action( 'alchemists_after_post_featured_img' ); ?>
 	</figure>
 	<?php endif; ?>
 
