@@ -89,14 +89,6 @@
 		"oAP": "/widgets/widget-contact-info.php",
 		"oF": 0
 		},
-	"/widgets/widget-instagram-feed.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/widgets/widget-instagram-feed.php",
-		"oF": 0
-		},
 	"/widgets/widget-recent-comments.php": {
 		"cB": 0,
 		"ft": 8192,
