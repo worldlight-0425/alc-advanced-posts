@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   2.0.7
+ * @version   2.1.0
  */
 
 
@@ -55,6 +55,7 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 		$posts_commented_count = isset( $instance['posts_commented_count'] ) ? $instance['posts_commented_count'] : 3;
 		$posts_popular_count   = isset( $instance['posts_popular_count'] ) ? $instance['posts_popular_count'] : 3;
 		$popularity            = isset( $instance['popularity'] ) ? $instance['popularity'] : 'likes';
+		$date                  = isset( $instance['date'] ) ? $instance['date'] : 'default';
 		$show_thumb            = isset( $instance['show_thumb'] ) ? true : false;
 		$thumb_size            = isset( $instance['thumb_size'] ) ? $instance['thumb_size'] : 'thumb-80x80';
 		$show_excerpt          = isset( $instance['show_excerpt'] ) ? true : false;
@@ -99,56 +100,79 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 				<div role="tabpanel" class="tab-pane fade show active" id="widget-tabbed-sm-newest-<?php echo esc_attr( $unique_id ); ?>">
 
 					<?php
-						$args_newest = array(
-							'posts_per_page'      => $posts_newest_count,
-							'orderby'             => 'date',
-							'no_found_rows'       => true,
-							'post_status'         => 'publish',
-							'ignore_sticky_posts' => true
+					$args_newest = array(
+						'posts_per_page'      => $posts_newest_count,
+						'orderby'             => 'date',
+						'no_found_rows'       => true,
+						'post_status'         => 'publish',
+						'ignore_sticky_posts' => true
+					);
+
+					// Date
+					if ( $date && 'default' != $date ) {
+						$args_newest['date_query'] = array(
+							array(
+								'after' => $date,
+							)
 						);
+					}
 
-						// Start the Loop
-						$newest_posts_query = new WP_Query( $args_newest );
-						if ( $newest_posts_query->have_posts() ) :
-					?>
-					<ul class="posts posts--simple-list">
+					// Start the Loop
+					$newest_posts_query = new WP_Query( $args_newest );
+					if ( $newest_posts_query->have_posts() ) :
+						?>
+						<ul class="posts posts--simple-list">
 
-						<?php while ( $newest_posts_query->have_posts()) : $newest_posts_query->the_post();
+							<?php
+							while ( $newest_posts_query->have_posts()) : $newest_posts_query->the_post();
 
-							include ALCADVPOSTS_PLUGIN_DIR . '/widgets/widget-top-posts/widget-top-posts-post.php';
+								include ALCADVPOSTS_PLUGIN_DIR . '/widgets/widget-top-posts/widget-top-posts-post.php';
 
-						endwhile; ?>
-						<?php wp_reset_postdata(); ?>
+							endwhile;
+							wp_reset_postdata();
+							?>
 
-					</ul>
+						</ul>
 					<?php endif; ?>
+
 				</div>
 				<!-- Commented -->
 				<div role="tabpanel" class="tab-pane fade" id="widget-tabbed-sm-commented-<?php echo esc_attr( $unique_id ); ?>">
 
 					<?php
-						$args_commented = array(
-							'posts_per_page'      => $posts_commented_count,
-							'orderby'             => 'comment_count',
-							'no_found_rows'       => true,
-							'post_status'         => 'publish',
-							'ignore_sticky_posts' => true
+					$args_commented = array(
+						'posts_per_page'      => $posts_commented_count,
+						'orderby'             => 'comment_count',
+						'no_found_rows'       => true,
+						'post_status'         => 'publish',
+						'ignore_sticky_posts' => true
+					);
+
+					// Date
+					if ( $date && 'default' != $date ) {
+						$args_commented['date_query'] = array(
+							array(
+								'after' => $date,
+							)
 						);
+					}
 
-						// Start the Loop
-						$commented_posts_query = new WP_Query( $args_commented );
-						if ( $commented_posts_query->have_posts() ) :
-					?>
-					<ul class="posts posts--simple-list">
+					// Start the Loop
+					$commented_posts_query = new WP_Query( $args_commented );
+					if ( $commented_posts_query->have_posts() ) :
+						?>
+						<ul class="posts posts--simple-list">
 
-						<?php while ($commented_posts_query->have_posts()) : $commented_posts_query->the_post();
+							<?php
+							while ($commented_posts_query->have_posts()) : $commented_posts_query->the_post();
 
-							include ALCADVPOSTS_PLUGIN_DIR . '/widgets/widget-top-posts/widget-top-posts-post.php';
+								include ALCADVPOSTS_PLUGIN_DIR . '/widgets/widget-top-posts/widget-top-posts-post.php';
 
-						endwhile;
-						wp_reset_postdata(); ?>
+							endwhile;
+							wp_reset_postdata();
+							?>
 
-					</ul>
+						</ul>
 					<?php endif; ?>
 
 				</div>
@@ -156,35 +180,46 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 				<div role="tabpanel" class="tab-pane fade" id="widget-tabbed-sm-popular-<?php echo esc_attr( $unique_id ); ?>">
 
 					<?php
-						if ( $popularity == 'likes' ) {
-							$popularity_meta_key = '_post_like_count';
-						} else {
-							$popularity_meta_key = 'post_views_count';
-						}
-						$args_popular = array(
-							'post_type'           => 'post',
-							'post_status'         => 'publish',
-							'posts_per_page'      => $posts_popular_count,
-							'orderby'             => 'meta_value_num',
-							'meta_key'            => $popularity_meta_key,
-							'no_found_rows'       => true,
-							'ignore_sticky_posts' => true
+					if ( $popularity == 'likes' ) {
+						$popularity_meta_key = '_post_like_count';
+					} else {
+						$popularity_meta_key = 'post_views_count';
+					}
+					$args_popular = array(
+						'post_type'           => 'post',
+						'post_status'         => 'publish',
+						'posts_per_page'      => $posts_popular_count,
+						'orderby'             => 'meta_value_num',
+						'meta_key'            => $popularity_meta_key,
+						'no_found_rows'       => true,
+						'ignore_sticky_posts' => true
+					);
+
+					// Date
+					if ( $date && 'default' != $date ) {
+						$args_popular['date_query'] = array(
+							array(
+								'after' => $date,
+							)
 						);
+					}
 
-						// Start the Loop
-						$popular_posts_query = new WP_Query( $args_popular );
-						if ( $popular_posts_query->have_posts() ) :
-					?>
-					<ul class="posts posts--simple-list">
+					// Start the Loop
+					$popular_posts_query = new WP_Query( $args_popular );
+					if ( $popular_posts_query->have_posts() ) :
+						?>
+						<ul class="posts posts--simple-list">
 
-						<?php while ($popular_posts_query->have_posts()) : $popular_posts_query->the_post();
+							<?php
+							while ($popular_posts_query->have_posts()) : $popular_posts_query->the_post();
 
-							include ALCADVPOSTS_PLUGIN_DIR . '/widgets/widget-top-posts/widget-top-posts-post.php';
+								include ALCADVPOSTS_PLUGIN_DIR . '/widgets/widget-top-posts/widget-top-posts-post.php';
 
-						endwhile;
-						wp_reset_postdata(); ?>
+							endwhile;
+							wp_reset_postdata();
+							?>
 
-					</ul>
+						</ul>
 					<?php endif;?>
 
 				</div>
@@ -209,6 +244,7 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 		$instance['posts_commented_count'] = $new_instance['posts_commented_count'];
 		$instance['posts_popular_count']   = $new_instance['posts_popular_count'];
 		$instance['popularity']            = $new_instance['popularity'];
+		$instance['date']                  = $new_instance['date'];
 		$instance['show_thumb']            = $new_instance['show_thumb'];
 		$instance['thumb_size']            = $new_instance['thumb_size'];
 		$instance['show_excerpt']          = $new_instance['show_excerpt'];
@@ -230,6 +266,7 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 			'posts_commented_count' => 3,
 			'posts_popular_count'   => 3,
 			'popularity'            => 'likes',
+			'date'                  => 'default',
 			'show_newest_posts'     => 'on',
 			'show_commented_posts'  => 'on',
 			'show_popular_posts'    => 'on',
@@ -266,6 +303,18 @@ class Alchemists_Widget_Top_Posts extends WP_Widget {
 			<select id="<?php echo esc_attr( $this->get_field_id( 'popularity' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'popularity' ) ); ?>" class="widefat" style="width:100%;">
 				<option value="likes" <?php echo ( 'likes' == $instance['popularity'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Likes', 'alc-advanced-posts' ); ?></option>
 				<option value="views" <?php echo ( 'views' == $instance['popularity'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Views', 'alc-advanced-posts' ); ?></option>
+			</select>
+		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php esc_html_e( 'Date:', 'alc-advanced-posts' ); ?></label>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>" class="widefat" style="width:100%;">
+				<option value="default" <?php echo ( 'default' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Default', 'alc-advanced-posts' ); ?></option>
+				<option value="1 week ago" <?php echo ( '1 week ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 7 days', 'alc-advanced-posts' ); ?></option>
+				<option value="1 month ago" <?php echo ( '1 month ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 30 days', 'alc-advanced-posts' ); ?></option>
+				<option value="3 months ago" <?php echo ( '3 months ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 90 days', 'alc-advanced-posts' ); ?></option>
+				<option value="6 months ago" <?php echo ( '6 months ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 6 months', 'alc-advanced-posts' ); ?></option>
+				<option value="1 year ago" <?php echo ( '1 year ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 12 months', 'alc-advanced-posts' ); ?></option>
 			</select>
 		</p>
 

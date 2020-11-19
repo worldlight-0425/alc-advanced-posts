@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   2.0.7
+ * @version   2.1.0
  */
 
 
@@ -54,6 +54,7 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 		$number       = isset( $instance['number'] ) ? $instance['number'] : 4;
 		$orderby      = isset( $instance['orderby'] ) ? $instance['orderby'] : 'date';
 		$popularity   = isset( $instance['popularity'] ) ? $instance['popularity'] : 'likes';
+		$date         = isset( $instance['date'] ) ? $instance['date'] : 'default';
 		$cat          = isset( $instance['cat'] ) ? $instance['cat'] : '';
 		$show_thumb   = isset( $instance['show_thumb'] ) ? true : false;
 		$numbered     = isset( $instance['numbered'] ) ? true : false;
@@ -82,6 +83,15 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 			'no_found_rows'       => true,
 			'ignore_sticky_posts' => true,
 		);
+
+		// Date
+		if ( $date && 'default' != $date ) {
+			$args['date_query'] = array(
+				array(
+					'after' => $date,
+				)
+			);
+		}
 
 		// Order by Likes or Views
 		if ( $orderby == 'meta_value_num' ) {
@@ -195,6 +205,7 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 		$instance['number']       = $new_instance['number'];
 		$instance['orderby']      = $new_instance['orderby'];
 		$instance['popularity']   = $new_instance['popularity'];
+		$instance['date']         = $new_instance['date'];
 		$instance['cat']          = $new_instance['cat'];
 		$instance['show_thumb']   = $new_instance['show_thumb'];
 		$instance['numbered']     = $new_instance['numbered'];
@@ -218,6 +229,7 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 			'number'       => 4,
 			'orderby'      => 'date',
 			'popularity'   => 'likes',
+			'date'         => 'default',
 			'cat'          => esc_html__( 'All', 'alc-advanced-posts' ),
 			'show_thumb'   => 'on',
 			'numbered'     => 'off',
@@ -252,6 +264,18 @@ class Alchemists_Widget_Recent_Posts extends WP_Widget {
 			<select id="<?php echo esc_attr( $this->get_field_id( 'popularity' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'popularity' ) ); ?>" class="widefat" style="width:100%;">
 				<option value="likes" <?php echo ( 'likes' == $instance['popularity'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Likes', 'alc-advanced-posts' ); ?></option>
 				<option value="views" <?php echo ( 'views' == $instance['popularity'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Views', 'alc-advanced-posts' ); ?></option>
+			</select>
+		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>"><?php esc_html_e( 'Date:', 'alc-advanced-posts' ); ?></label>
+			<select id="<?php echo esc_attr( $this->get_field_id( 'date' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'date' ) ); ?>" class="widefat" style="width:100%;">
+				<option value="default" <?php echo ( 'default' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Default', 'alc-advanced-posts' ); ?></option>
+				<option value="1 week ago" <?php echo ( '1 week ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 7 days', 'alc-advanced-posts' ); ?></option>
+				<option value="1 month ago" <?php echo ( '1 month ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 30 days', 'alc-advanced-posts' ); ?></option>
+				<option value="3 months ago" <?php echo ( '3 months ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 90 days', 'alc-advanced-posts' ); ?></option>
+				<option value="6 months ago" <?php echo ( '6 months ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 6 months', 'alc-advanced-posts' ); ?></option>
+				<option value="1 year ago" <?php echo ( '1 year ago' == $instance['date'] ) ? 'selected="selected"' : ''; ?>><?php esc_html_e( 'Last 12 months', 'alc-advanced-posts' ); ?></option>
 			</select>
 		</p>
 
