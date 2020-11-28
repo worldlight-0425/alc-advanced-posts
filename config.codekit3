@@ -81,6 +81,36 @@
 		"oAP": "/post-like-system/post-like.php",
 		"oF": 0
 		},
+	"/post-views/js/alchemists-post-views-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/post-views/js/min/alchemists-post-views-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"/post-views/js/alchemists-post-views.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/post-views/js/alchemists-post-views-min.js",
+		"oF": 2,
+		"sC": 1,
+		"tS": 0
+		},
+	"/post-views/post-views.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/post-views/post-views.php",
+		"oF": 0
+		},
 	"/widgets/widget-contact-info.php": {
 		"cB": 0,
 		"ft": 8192,

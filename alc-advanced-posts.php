@@ -44,6 +44,9 @@ if (!defined('ALCADVPOSTS_VERSION_NUM'))
  * 2. INCLUDES
  */
 
+// Post Views
+include ALCADVPOSTS_PLUGIN_DIR . '/post-views/post-views.php';
+
 // Post Like System
 include ALCADVPOSTS_PLUGIN_DIR . '/post-like-system/post-like.php';
 
@@ -148,42 +151,6 @@ if(!function_exists('alchemists_tweet_count')) {
 				// cache for an hour
 
 			return $numberOfFollowers;
-		}
-	}
-}
-
-
-/**
- * Get Post Views
- */
-if(!function_exists('alchemists_getPostViews')) {
-	function alchemists_getPostViews($postID){
-		$count_key = 'post_views_count';
-		$count = get_post_meta($postID, $count_key, true);
-
-		if( $count == ''){
-			delete_post_meta($postID, $count_key);
-			add_post_meta($postID, $count_key, '0');
-			return 0;
-		}
-		return $count;
-	}
-}
-
-/**
- * Set Post Views
- */
-if(!function_exists('alchemists_setPostViews')) {
-	function alchemists_setPostViews($postID) {
-		$count_key = 'post_views_count';
-		$count = get_post_meta($postID, $count_key, true);
-		if($count == ''){
-			$count = 0;
-			delete_post_meta($postID, $count_key);
-			add_post_meta($postID, $count_key, '0');
-		} else {
-			$count++;
-			update_post_meta($postID, $count_key, $count);
 		}
 	}
 }

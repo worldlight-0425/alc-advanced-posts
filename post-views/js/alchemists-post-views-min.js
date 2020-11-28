@@ -1,0 +1,1 @@
+!function(t){"use strict";t(document).ready((function(){var a=t(".js-meta__item--views-count").first(),e=a.data("id"),n=a.data("nonce");t.get(alchemistsPostViews.ajaxurl+"?action=alchemists-ajax-counter&nonce="+n+"&p="+e,(function(e){t(a).html(e)}))}))}(jQuery);
