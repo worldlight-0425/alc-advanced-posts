@@ -44,8 +44,13 @@ if (!defined('ALCADVPOSTS_VERSION_NUM'))
  * 2. INCLUDES
  */
 
-// Post Views
-include ALCADVPOSTS_PLUGIN_DIR . '/post-views/post-views.php';
+$alchemists_data = get_option( 'alchemists_data' );
+$post_views      = isset( $alchemists_data['alchemists__blog-post-views'] ) ? $alchemists_data['alchemists__blog-post-views'] : true;
+
+if ( $post_views ) {
+	// Post Views
+	include ALCADVPOSTS_PLUGIN_DIR . '/post-views/post-views.php';
+}
 
 // Post Like System
 include ALCADVPOSTS_PLUGIN_DIR . '/post-like-system/post-like.php';
