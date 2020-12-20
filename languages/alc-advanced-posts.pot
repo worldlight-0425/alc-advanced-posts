@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alchemists Advanced Posts\n"
-"POT-Creation-Date: 2020-11-03 13:12+0100\n"
-"PO-Revision-Date: 2020-11-03 13:13+0100\n"
+"POT-Creation-Date: 2020-12-20 23:35+0100\n"
+"PO-Revision-Date: 2020-12-20 23:35+0100\n"
 "Last-Translator: Dan Fisher <dan.fisher85@yahoo.com>\n"
 "Language-Team: Dan Fisher <dan.fisher85@yahoo.com>\n"
 "Language: en\n"
@@ -18,43 +18,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: alc-advanced-posts.php:326 alc-advanced-posts.php:416
+#: alc-advanced-posts.php:298 alc-advanced-posts.php:388
 msgid "Share on Facebook"
 msgstr ""
 
-#: alc-advanced-posts.php:332 alc-advanced-posts.php:424
+#: alc-advanced-posts.php:304 alc-advanced-posts.php:396
 msgid "Share on Twitter"
 msgstr ""
 
-#: alc-advanced-posts.php:338 alc-advanced-posts.php:432
+#: alc-advanced-posts.php:310 alc-advanced-posts.php:404
 msgid "Share on Google+"
 msgstr ""
 
-#: alc-advanced-posts.php:344
+#: alc-advanced-posts.php:316
 msgid "Share on Linkedin"
 msgstr ""
 
-#: alc-advanced-posts.php:350 alc-advanced-posts.php:448
+#: alc-advanced-posts.php:322 alc-advanced-posts.php:420
 msgid "Share on VK"
 msgstr ""
 
-#: alc-advanced-posts.php:356 alc-advanced-posts.php:456
+#: alc-advanced-posts.php:328 alc-advanced-posts.php:428
 msgid "Share on OK"
 msgstr ""
 
-#: alc-advanced-posts.php:362 alc-advanced-posts.php:464
+#: alc-advanced-posts.php:334 alc-advanced-posts.php:436
 msgid "Share on WhatsApp"
 msgstr ""
 
-#: alc-advanced-posts.php:368 alc-advanced-posts.php:472
+#: alc-advanced-posts.php:340 alc-advanced-posts.php:444
 msgid "Share on Viber"
 msgstr ""
 
-#: alc-advanced-posts.php:374 alc-advanced-posts.php:480
+#: alc-advanced-posts.php:346 alc-advanced-posts.php:452
 msgid "Share on Telegram"
 msgstr ""
 
-#: alc-advanced-posts.php:440
+#: alc-advanced-posts.php:412
 msgid "Share on LinkedIn"
 msgstr ""
 
@@ -269,9 +269,9 @@ msgstr ""
 msgid "Twitch"
 msgstr ""
 
-#: widgets/widget-contact-info.php:296 widgets/widget-instagram-feed.php:153
-#: widgets/widget-recent-comments.php:177 widgets/widget-recent-posts.php:233
-#: widgets/widget-recent-videos.php:172 widgets/widget-top-posts.php:245
+#: widgets/widget-contact-info.php:296 widgets/widget-recent-comments.php:177
+#: widgets/widget-recent-posts.php:245 widgets/widget-recent-videos.php:172
+#: widgets/widget-top-posts.php:282
 msgid "Title:"
 msgstr ""
 
@@ -361,51 +361,6 @@ msgstr ""
 msgid "Social - Custom 2 Icon:"
 msgstr ""
 
-#: widgets/widget-instagram-feed.php:34
-msgid "Display Instagram feed as a widget."
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:65 widgets/widget-instagram-feed.php:147
-msgid "Follow Our Instagram"
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:158
-msgid "Username:"
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:163
-msgid "User ID:"
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:168
-msgid "Access Token:"
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:173
-msgid "Number of images:"
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:178
-#: widgets/widget-recent-comments.php:192
-msgid "Layout:"
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:180
-msgid "3 Columns"
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:181
-msgid "4 Columns"
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:187
-msgid "Show Follow Button"
-msgstr ""
-
-#: widgets/widget-instagram-feed.php:191
-msgid "Follow Button Label:"
-msgstr ""
-
 #: widgets/widget-recent-comments.php:34
 msgid "A widget to show the most recent comments."
 msgstr ""
@@ -429,6 +384,10 @@ msgstr ""
 msgid "Comment size (number of words):"
 msgstr ""
 
+#: widgets/widget-recent-comments.php:192
+msgid "Layout:"
+msgstr ""
+
 #: widgets/widget-recent-comments.php:194
 msgid "Layout 1"
 msgstr ""
@@ -441,106 +400,131 @@ msgstr ""
 msgid "Display your posts."
 msgstr ""
 
-#: widgets/widget-recent-posts.php:217
+#: widgets/widget-recent-posts.php:228
 msgid "Recent Posts"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:221 widgets/widget-recent-posts.php:261
+#: widgets/widget-recent-posts.php:233 widgets/widget-recent-posts.php:285
 msgid "All"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:238 widgets/widget-recent-videos.php:177
+#: widgets/widget-recent-posts.php:250 widgets/widget-recent-videos.php:177
 msgid "Number of items to show:"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:243 widgets/widget-recent-videos.php:190
+#: widgets/widget-recent-posts.php:255 widgets/widget-recent-videos.php:190
 msgid "Order by:"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:245 widgets/widget-recent-videos.php:192
+#: widgets/widget-recent-posts.php:257 widgets/widget-recent-videos.php:192
 msgid "Date"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:246 widgets/widget-recent-videos.php:193
+#: widgets/widget-recent-posts.php:258 widgets/widget-recent-videos.php:193
 msgid "Popularity"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:251 widgets/widget-recent-videos.php:198
-#: widgets/widget-top-posts.php:265
+#: widgets/widget-recent-posts.php:263 widgets/widget-recent-videos.php:198
+#: widgets/widget-top-posts.php:302
 msgid "Popularity:"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:253 widgets/widget-recent-videos.php:200
-#: widgets/widget-top-posts.php:267
+#: widgets/widget-recent-posts.php:265 widgets/widget-recent-videos.php:200
+#: widgets/widget-top-posts.php:304
 msgid "Likes"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:254 widgets/widget-recent-videos.php:201
-#: widgets/widget-top-posts.php:268
+#: widgets/widget-recent-posts.php:266 widgets/widget-recent-videos.php:201
+#: widgets/widget-top-posts.php:305
 msgid "Views"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:259
-msgid "Category:"
+#: widgets/widget-recent-posts.php:271 widgets/widget-top-posts.php:310
+msgid "Date:"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:279 widgets/widget-top-posts.php:274
-msgid "Show thumbnail"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:284
-msgid "Numbered List?"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:288 widgets/widget-top-posts.php:278
-msgid "Thumb size:"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:290 widgets/widget-top-posts.php:280
-msgid "Small - 80x80"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:291
-msgid "Small - 90x68"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:292 widgets/widget-top-posts.php:281
-msgid "Small - 112x84"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:293
-msgid "Extra Small - 50x50"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:294
-msgid "Large - 380x270"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:295
-msgid "Extra Large - 400x400"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:300
-msgid "Excerpt:"
-msgstr ""
-
-#: widgets/widget-recent-posts.php:302 widgets/widget-recent-posts.php:316
+#: widgets/widget-recent-posts.php:273 widgets/widget-recent-posts.php:326
+#: widgets/widget-recent-posts.php:340 widgets/widget-top-posts.php:312
 msgid "Default"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:303
+#: widgets/widget-recent-posts.php:274 widgets/widget-top-posts.php:313
+msgid "Last 7 days"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:275 widgets/widget-top-posts.php:314
+msgid "Last 30 days"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:276 widgets/widget-top-posts.php:315
+msgid "Last 90 days"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:277 widgets/widget-top-posts.php:316
+msgid "Last 6 months"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:278 widgets/widget-top-posts.php:317
+msgid "Last 12 months"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:283
+msgid "Category:"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:303 widgets/widget-top-posts.php:323
+msgid "Show thumbnail"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:308
+msgid "Numbered List?"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:312 widgets/widget-top-posts.php:327
+msgid "Thumb size:"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:314 widgets/widget-top-posts.php:329
+msgid "Small - 80x80"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:315
+msgid "Small - 90x68"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:316 widgets/widget-top-posts.php:330
+msgid "Small - 112x84"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:317
+msgid "Extra Small - 50x50"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:318
+msgid "Large - 380x270"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:319
+msgid "Extra Large - 400x400"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:324
+msgid "Excerpt:"
+msgstr ""
+
+#: widgets/widget-recent-posts.php:327
 msgid "Enable"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:304 widgets/widget-recent-posts.php:317
+#: widgets/widget-recent-posts.php:328 widgets/widget-recent-posts.php:341
 msgid "Disable"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:309 widgets/widget-top-posts.php:291
+#: widgets/widget-recent-posts.php:333 widgets/widget-top-posts.php:340
 msgid "Excerpt size (number of words):"
 msgstr ""
 
-#: widgets/widget-recent-posts.php:314
+#: widgets/widget-recent-posts.php:338
 msgid "Meta:"
 msgstr ""
 
@@ -568,30 +552,30 @@ msgstr ""
 msgid "Newest, Most Commented and Popular posts."
 msgstr ""
 
-#: widgets/widget-top-posts.php:86
+#: widgets/widget-top-posts.php:87
 msgid "Newest"
 msgstr ""
 
-#: widgets/widget-top-posts.php:89
+#: widgets/widget-top-posts.php:90
 msgid "Most Commented"
 msgstr ""
 
-#: widgets/widget-top-posts.php:92
+#: widgets/widget-top-posts.php:93
 msgid "Popular"
 msgstr ""
 
-#: widgets/widget-top-posts.php:250
+#: widgets/widget-top-posts.php:287
 msgid "Number of newest posts:"
 msgstr ""
 
-#: widgets/widget-top-posts.php:255
+#: widgets/widget-top-posts.php:292
 msgid "Number of most commented posts:"
 msgstr ""
 
-#: widgets/widget-top-posts.php:260
+#: widgets/widget-top-posts.php:297
 msgid "Number of popular posts:"
 msgstr ""
 
-#: widgets/widget-top-posts.php:287
+#: widgets/widget-top-posts.php:336
 msgid "Show excerpt"
 msgstr ""
