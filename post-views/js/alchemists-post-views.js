@@ -1,6 +1,6 @@
 (function($){
 	'use strict';
-	$(document).ready( function() {
+	$(function() {
 		var $count = $('.js-meta__item--views-count').first();
 		var $id = $count.data('id');
 		var $nonce = $count.data('nonce');

@@ -3,7 +3,7 @@
 Plugin Name: Alchemists Advanced Posts
 Plugin URI: https://themeforest.net/user/dan_fisher/portfolio
 Description: This plugin adds social sharing, post views, likes, custom post types to Alchemists WP Theme.
-Version: 2.1.0
+Version: 2.1.2
 Author: Dan Fisher
 Author URI: https://themeforest.net/user/dan_fisher
 Text Domain: alc-advanced-posts
@@ -37,7 +37,7 @@ if (!defined('ALCADVPOSTS_VERSION_KEY'))
 		define('ALCADVPOSTS_VERSION_KEY', 'alcsocial_version');
 
 if (!defined('ALCADVPOSTS_VERSION_NUM'))
-		define('ALCADVPOSTS_VERSION_NUM', '2.1.0');
+		define('ALCADVPOSTS_VERSION_NUM', '2.1.2');
 
 
 /*
@@ -237,7 +237,7 @@ function alc_post_social_share_buttons_small() {
 				case 'social_whatsapp': ?>
 				
 				<li class="social-links__item">
-					<a target="_blank" href="whatsapp://send?text=<?php echo $url; ?>" class="social-links__link social-links__link--whatsapp" rel="nofollow"><i class="fa fa-whatsapp"></i></a>
+					<a target="_blank" href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" class="social-links__link social-links__link--whatsapp" rel="nofollow"><i class="fa fa-whatsapp"></i></a>
 				</li>
 
 				<?php break;
@@ -331,7 +331,7 @@ function alc_post_social_share_buttons() {
 
 				case 'social_whatsapp': ?>
 				
-				<a target="_blank" href="whatsapp://send?text=<?php echo $url; ?>" class="btn btn-default btn-whatsapp btn-icon btn-block" rel="nofollow"><i class="fa fa-whatsapp"></i> <span class="post-sharing__label hidden-xs"><?php esc_html_e( 'Share on WhatsApp', 'alc-advanced-posts' ); ?></span></a>
+				<a target="_blank" href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" class="btn btn-default btn-whatsapp btn-icon btn-block" rel="nofollow"><i class="fa fa-whatsapp"></i> <span class="post-sharing__label hidden-xs"><?php esc_html_e( 'Share on WhatsApp', 'alc-advanced-posts' ); ?></span></a>
 
 				<?php break;
 
@@ -433,7 +433,7 @@ function alc_post_social_share_buttons_labels() {
 				case 'social_whatsapp': ?>
 				
 				<li class="social-links__item">
-					<a target="_blank" href="whatsapp://send?text=<?php echo $url; ?>" class="social-links__link social-links__link--whatsapp" rel="nofollow"><?php esc_html_e( 'Share on WhatsApp', 'alc-advanced-posts' ); ?></a>
+					<a target="_blank" href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" class="social-links__link social-links__link--whatsapp" rel="nofollow"><?php esc_html_e( 'Share on WhatsApp', 'alc-advanced-posts' ); ?></a>
 				</li>
 
 				<?php break;
@@ -527,7 +527,7 @@ function alc_post_social_share_buttons_icons( $css_class = '' ) {
 
 				case 'social_whatsapp': ?>
 				
-				<a target="_blank" href="whatsapp://send?text=<?php echo $url; ?>" class="btn btn-default btn-sm btn-whatsapp btn-icon" rel="nofollow"><i class="fa fa-whatsapp"></i></a>
+				<a target="_blank" href="https://api.whatsapp.com/send?text=<?php echo $url; ?>" class="btn btn-default btn-sm btn-whatsapp btn-icon" rel="nofollow"><i class="fa fa-whatsapp"></i></a>
 
 				<?php break;
 
