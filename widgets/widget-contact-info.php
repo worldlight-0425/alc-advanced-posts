@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   1.2.0
+ * @version   2.1.3
  */
 
 
@@ -60,11 +60,11 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		$icon_2       = isset( $instance['icon_2'] ) ? $instance['icon_2'] : '';
 		$soc_tw       = isset( $instance['soc_tw'] ) ? $instance['soc_tw'] : '';
 		$soc_fb       = isset( $instance['soc_fb'] ) ? $instance['soc_fb'] : '';
-		$soc_ggl      = isset( $instance['soc_ggl'] ) ? $instance['soc_ggl'] : '';
 		$soc_inst     = isset( $instance['soc_inst'] ) ? $instance['soc_inst'] : '';
 		$soc_tele     = isset( $instance['soc_tele'] ) ? $instance['soc_tele'] : '';
 		$soc_snap     = isset( $instance['soc_snap'] ) ? $instance['soc_snap'] : '';
 		$soc_twitch   = isset( $instance['soc_twitch'] ) ? $instance['soc_twitch'] : '';
+		$soc_tiktok   = isset( $instance['soc_tiktok'] ) ? $instance['soc_tiktok'] : '';
 		$soc_custom1_title = isset( $instance['soc_custom1_title'] ) ? $instance['soc_custom1_title'] : '';
 		$soc_custom1_url   = isset( $instance['soc_custom1_url'] ) ? $instance['soc_custom1_url'] : '';
 		$soc_custom1_icon  = isset( $instance['soc_custom1_icon'] ) ? $instance['soc_custom1_icon'] : '';
@@ -159,49 +159,49 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 				</div>
 			<?php endif; ?>
 
-			<?php if ( !empty( $soc_tw ) || !empty( $soc_fb ) || !empty( $soc_ggl ) || !empty( $soc_inst ) || !empty( $soc_custom1_url ) || !empty( $soc_custom2_url ) ) : ?>
+			<?php if ( !empty( $soc_tw ) || !empty( $soc_fb ) || !empty( $soc_inst ) || !empty( $soc_custom1_url ) || !empty( $soc_custom2_url ) ) : ?>
 			<div class="info-block__item info-block__item--nopadding">
 				<ul class="social-links">
 
 					<?php if ( !empty( $soc_fb) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_fb ); ?>" class="social-links__link" target="_blank"><i class="fa fa-facebook"></i> <?php esc_html_e( 'Facebook', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_fb ); ?>" class="social-links__link" target="_blank"><i class="fab fa-facebook"></i> <?php esc_html_e( 'Facebook', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
 					<?php if ( !empty( $soc_tw) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_tw ); ?>" class="social-links__link" target="_blank"><i class="fa fa-twitter"></i> <?php esc_html_e( 'Twitter', 'alc-advanced-posts' ); ?></a>
-					</li>
-					<?php endif; ?>
-
-					<?php if ( !empty( $soc_ggl) ): ?>
-					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_ggl ); ?>" class="social-links__link" target="_blank"><i class="fa fa-google-plus"></i> <?php esc_html_e( 'Google+', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_tw ); ?>" class="social-links__link" target="_blank"><i class="fab fa-twitter"></i> <?php esc_html_e( 'Twitter', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
 					<?php if ( !empty( $soc_inst) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_inst ); ?>" class="social-links__link" target="_blank"><i class="fa fa-instagram"></i> <?php esc_html_e( 'Instagram', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_inst ); ?>" class="social-links__link" target="_blank"><i class="fab fa-instagram"></i> <?php esc_html_e( 'Instagram', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
 					<?php if ( !empty( $soc_tele) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_tele ); ?>" class="social-links__link" target="_blank"><i class="fa fa-paper-plane"></i> <?php esc_html_e( 'Telegram', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_tele ); ?>" class="social-links__link" target="_blank"><i class="fab fa-paper-plane"></i> <?php esc_html_e( 'Telegram', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 					
 					<?php if ( !empty( $soc_snap) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_snap ); ?>" class="social-links__link" target="_blank"><i class="fa fa-snapchat-ghost"></i> <?php esc_html_e( 'Snapchat', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_snap ); ?>" class="social-links__link" target="_blank"><i class="fab fa-snapchat-ghost"></i> <?php esc_html_e( 'Snapchat', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
 					<?php if ( !empty( $soc_twitch) ): ?>
 					<li class="social-links__item">
-						<a href="<?php echo esc_attr( $soc_twitch ); ?>" class="social-links__link" target="_blank"><i class="fa fa-twitch"></i> <?php esc_html_e( 'Twitch', 'alc-advanced-posts' ); ?></a>
+						<a href="<?php echo esc_attr( $soc_twitch ); ?>" class="social-links__link" target="_blank"><i class="fab fa-twitch"></i> <?php esc_html_e( 'Twitch', 'alc-advanced-posts' ); ?></a>
+					</li>
+					<?php endif; ?>
+
+					<?php if ( !empty( $soc_tiktok) ): ?>
+					<li class="social-links__item">
+						<a href="<?php echo esc_attr( $soc_tiktok ); ?>" class="social-links__link" target="_blank"><i class="fab fa-tiktok"></i> <?php esc_html_e( 'TikTok', 'alc-advanced-posts' ); ?></a>
 					</li>
 					<?php endif; ?>
 
@@ -243,11 +243,11 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		$instance['icon_2']     = $new_instance['icon_2'];
 		$instance['soc_tw']     = $new_instance['soc_tw'];
 		$instance['soc_fb']     = $new_instance['soc_fb'];
-		$instance['soc_ggl']    = $new_instance['soc_ggl'];
 		$instance['soc_inst']   = $new_instance['soc_inst'];
 		$instance['soc_tele']   = $new_instance['soc_tele'];
 		$instance['soc_snap']   = $new_instance['soc_snap'];
 		$instance['soc_twitch'] = $new_instance['soc_twitch'];
+		$instance['soc_tiktok'] = $new_instance['soc_tiktok'];
 		$instance['soc_custom1_title'] = $new_instance['soc_custom1_title'];
 		$instance['soc_custom1_url']   = $new_instance['soc_custom1_url'];
 		$instance['soc_custom1_icon']  = $new_instance['soc_custom1_icon'];
@@ -276,11 +276,11 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 			'icon_2'     => '',
 			'soc_tw'     => '',
 			'soc_fb'     => '',
-			'soc_ggl'    => '',
 			'soc_inst'   => '',
 			'soc_tele'   => '',
 			'soc_snap'   => '',
 			'soc_twitch' => '',
+			'soc_tiktok' => '',
 
 			'soc_custom1_title' => '',
 			'soc_custom1_url'   => '',
@@ -345,11 +345,6 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'soc_ggl' ) ); ?>"><?php esc_html_e( 'Social - Google+:', 'alc-advanced-posts' ); ?></label>
-			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_ggl' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_ggl' ) ); ?>" value="<?php echo esc_attr( $instance['soc_ggl'] ); ?>" />
-		</p>
-
-		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'soc_inst' ) ); ?>"><?php esc_html_e( 'Social - Instagram:', 'alc-advanced-posts' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_inst' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_inst' ) ); ?>" value="<?php echo esc_attr( $instance['soc_inst'] ); ?>" />
 		</p>
@@ -367,6 +362,11 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'soc_twitch' ) ); ?>"><?php esc_html_e( 'Social - Twitch:', 'alc-advanced-posts' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_twitch' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_twitch' ) ); ?>" value="<?php echo esc_attr( $instance['soc_twitch'] ); ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'soc_tiktok' ) ); ?>"><?php esc_html_e( 'Social - TikTok:', 'alc-advanced-posts' ); ?></label>
+			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'soc_tiktok' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'soc_tiktok' ) ); ?>" value="<?php echo esc_attr( $instance['soc_tiktok'] ); ?>" />
 		</p>
 
 		<div style="overflow: hidden;">
