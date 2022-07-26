@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.2.0
- * @version   2.0.9
+ * @version   2.1.3
  */
 
 ?>
@@ -18,7 +18,7 @@
 			<?php if ( has_post_thumbnail() ) : ?>
 				<?php the_post_thumbnail( $post_thumb_size, array( 'class' => '' )); ?>
 			<?php else : ?>
-				<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder-400x400.jpg" alt="">
+				<img src="<?php echo get_theme_file_uri( '/assets/images/placeholder-400x400.jpg' ); ?>" alt="" />
 			<?php endif; ?>
 			</a>
 			<?php do_action( 'alchemists_after_post_featured_img' ); ?>

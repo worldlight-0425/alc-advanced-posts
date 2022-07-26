@@ -588,7 +588,7 @@ function alchemists_add_opengraph_meta() {
 				$img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail' );
 				echo '<meta name="twitter:image" content="' . esc_attr( $img_src[0] ) . '"/>' . "\n";
 			} else {
-				$img_src = get_template_directory_uri() . '/assets/images/placeholder-380x270.jpg';
+				$img_src = get_theme_file_uri( '/assets/images/placeholder-380x270.jpg' );
 				echo '<meta name="twitter:image" content="' . esc_attr( $img_src ) . '"/>' . "\n";
 			}
 
@@ -602,7 +602,7 @@ function alchemists_add_opengraph_meta() {
 				$img_src = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'alchemists_thumbnail' );
 				echo '<meta property="og:image" content="' . esc_attr( $img_src[0] ) . '"/>' . "\n";
 			} else {
-				$img_src = get_template_directory_uri() . '/assets/images/placeholder-380x270.jpg';
+				$img_src = get_theme_file_uri( '/assets/images/placeholder-380x270.jpg' );
 				echo '<meta property="og:image" content="' . esc_attr( $img_src ) . '"/>' . "\n";
 			}
 		}

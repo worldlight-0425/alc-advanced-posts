@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     2.0.0
- * @version   2.0.1
+ * @version   2.1.3
  */
 
 ?>
@@ -19,7 +19,7 @@
 				if ( has_post_thumbnail() ) {
 					the_post_thumbnail( $post_thumb_size, array( 'class' => '' ));
 				} else {
-					echo '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-380x270.jpg" alt="">';
+					echo '<img src="' . get_theme_file_uri( '/assets/images/placeholder-380x270.jpg' ) . '" alt="" />';
 				}
 				?>
 			</a>
