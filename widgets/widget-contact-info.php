@@ -5,7 +5,7 @@
  * @author    Dan Fisher
  * @package   Alchemists Advanced Posts
  * @since     1.1.0
- * @version   2.1.3
+ * @version   2.1.4
  */
 
 
@@ -54,9 +54,11 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		$desc         = isset( $instance['desc'] ) ? $instance['desc'] : '';
 		$label_1      = isset( $instance['label_1'] ) ? $instance['label_1'] : '';
 		$email_1      = isset( $instance['email_1'] ) ? $instance['email_1'] : '';
+		$title_1      = isset( $instance['title_1'] ) ? $instance['title_1'] : '';
 		$icon_1       = isset( $instance['icon_1'] ) ? $instance['icon_1'] : '';
 		$label_2      = isset( $instance['label_2'] ) ? $instance['label_2'] : '';
 		$email_2      = isset( $instance['email_2'] ) ? $instance['email_2'] : '';
+		$title_2      = isset( $instance['title_2'] ) ? $instance['title_2'] : '';
 		$icon_2       = isset( $instance['icon_2'] ) ? $instance['icon_2'] : '';
 		$soc_tw       = isset( $instance['soc_tw'] ) ? $instance['soc_tw'] : '';
 		$soc_fb       = isset( $instance['soc_fb'] ) ? $instance['soc_fb'] : '';
@@ -127,7 +129,15 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 					<?php if ( !empty( $label_1 ) ) : ?>
 						<h6 class="info-block__heading"><?php echo esc_html( $label_1 ); ?></h6>
 					<?php endif; ?>
-					<a class="info-block__link" href="<?php echo $email_1_attr; ?>"><?php echo esc_html( alchemists_remove_protocol( $email_1 ) ); ?></a>
+					<a class="info-block__link" href="<?php echo $email_1_attr; ?>">
+					<?php
+						if ( $title_1 ) {
+							echo $title_1;
+						} else {
+							echo esc_html( alchemists_remove_protocol( $email_1 ) );
+						}
+						?>
+					</a>
 				</div>
 			<?php endif; ?>
 
@@ -155,7 +165,15 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 					<?php if ( !empty( $label_2) ) : ?>
 						<h6 class="info-block__heading"><?php echo esc_html( $label_2); ?></h6>
 					<?php endif; ?>
-					<a class="info-block__link" href="<?php echo $email_2_attr; ?>"><?php echo esc_html( alchemists_remove_protocol( $email_2 ) ); ?></a>
+					<a class="info-block__link" href="<?php echo $email_2_attr; ?>">
+						<?php
+						if ( $title_2 ) {
+							echo $title_2;
+						} else {
+							echo esc_html( alchemists_remove_protocol( $email_2 ) );
+						}
+						?>
+					</a>
 				</div>
 			<?php endif; ?>
 
@@ -237,9 +255,11 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		$instance['desc']       = $new_instance['desc'];
 		$instance['label_1']    = $new_instance['label_1'];
 		$instance['email_1']    = $new_instance['email_1'];
+		$instance['title_1']    = $new_instance['title_1'];
 		$instance['icon_1']     = $new_instance['icon_1'];
 		$instance['label_2']    = $new_instance['label_2'];
 		$instance['email_2']    = $new_instance['email_2'];
+		$instance['title_2']    = $new_instance['title_2'];
 		$instance['icon_2']     = $new_instance['icon_2'];
 		$instance['soc_tw']     = $new_instance['soc_tw'];
 		$instance['soc_fb']     = $new_instance['soc_fb'];
@@ -270,9 +290,11 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 			'desc'       => '',
 			'label_1'    => '',
 			'email_1'    => '',
+			'title_1'    => '',
 			'icon_1'     => '',
 			'label_2'    => '',
 			'email_2'    => '',
+			'title_2'    => '',
 			'icon_2'     => '',
 			'soc_tw'     => '',
 			'soc_fb'     => '',
@@ -313,6 +335,11 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		</p>
 
 		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title_1' ) ); ?>"><?php esc_html_e( 'Text for the 1st Email, Link or Phone:', 'alc-advanced-posts' ); ?></label>
+			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'title_1' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title_1' ) ); ?>" value="<?php echo esc_attr( $instance['title_1'] ); ?>" />
+		</p>
+
+		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'icon_1' ) ); ?>"><?php esc_html_e( '1st Custom Icon:', 'alc-advanced-posts' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'icon_1' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'icon_1' ) ); ?>" value="<?php echo esc_attr( $instance['icon_1'] ); ?>" />
 			<p class="help"><?php _e( 'Add your custom icon, e.g. <code>&lt;i class="fa fa-user"&gt;&lt;/i&gt;</code> or <code>&lt;img src="PATH_TO_IMAGE" /&gt;</code>', 'alc-advanced-posts'); ?></p>
@@ -326,6 +353,11 @@ class Alchemists_Widget_Contact_Info extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'email_2' ) ); ?>"><?php esc_html_e( '2nd Email, Link or Phone:', 'alc-advanced-posts' ); ?></label>
 			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'email_2' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'email_2' ) ); ?>" value="<?php echo esc_attr( $instance['email_2'] ); ?>" />
+		</p>
+
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title_2' ) ); ?>"><?php esc_html_e( 'Text for the 2nd Email, Link or Phone:', 'alc-advanced-posts' ); ?></label>
+			<input class="widefat" type="text" id="<?php echo esc_attr( $this->get_field_id( 'title_2' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title_2' ) ); ?>" value="<?php echo esc_attr( $instance['title_2'] ); ?>" />
 		</p>
 
 		<p>
